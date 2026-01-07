@@ -127,6 +127,12 @@ html.dark .btn-outline {
   border: 1px solid var(--chip-border);
   font-size: 14px;
   color: var(--muted-2);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.chip:hover {
+  opacity: 0.9;
 }
 
 .card {
