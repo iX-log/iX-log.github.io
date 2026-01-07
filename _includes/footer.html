@@ -1,15 +1,23 @@
-<footer class="py-8 px-6 border-t border-gray-800">
-  <div class="max-w-6xl mx-auto">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-      <p class="text-gray-400 text-sm">© 2025 ixhen Santos. All rights reserved.</p>
+<footer class="py-10">
+  <div class="container-1200 text-center">
+    <div class="mb-4" style="font-family:Poppins,Inter,sans-serif; font-weight:700;">
+      Ixhen<span class="gray-lead">.</span>
+    </div>
 
-      <div class="flex gap-4">
-        <a href="#" class="text-gray-400 hover:text-[#d4ff00] transition-colors" aria-label="GitHub">GH</a>
-        <a href="#" class="text-gray-400 hover:text-[#d4ff00] transition-colors" aria-label="LinkedIn">in</a>
-        <a href="#" class="text-gray-400 hover:text-[#d4ff00] transition-colors" aria-label="YouTube">YT</a>
-        <a href="#" class="text-gray-400 hover:text-[#d4ff00] transition-colors" aria-label="Facebook">f</a>
-        <a href="#" class="text-gray-400 hover:text-[#d4ff00] transition-colors" aria-label="Instagram">IG</a>
-      </div>
+    <h3 class="text-2xl font-bold mb-2" style="font-family:Poppins,Inter,sans-serif;">Let’s Stay Connected</h3>
+    <p class="text-sm mb-6" style="color:var(--muted);">
+      You can reach me via email, or find my work on GitHub / Medium.
+    </p>
+
+    <div class="flex justify-center gap-3 mb-8 flex-wrap">
+      <a class="btn-outline" href="mailto:ixhen.dev@gmail.com">Email</a>
+      <a class="btn-outline" href="https://github.com/iX-log" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="btn-outline" href="https://medium.com/@ixhen.dev" target="_blank" rel="noreferrer">Medium</a>
+      <a class="btn-outline" href="https://www.linkedin.com/in/ixhen-hasani/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+
+    <div class="text-sm" style="color:var(--muted); border-top:1px solid var(--border); padding-top:16px;">
+      © {{ "now" | date: "%Y" }} Ixhen. All rights reserved. · Munich
     </div>
   </div>
 </footer>

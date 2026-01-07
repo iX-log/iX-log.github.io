@@ -1,21 +1,27 @@
-<nav class="fixed top-0 left-0 right-0 z-50 bg-[#2a2a2a]/95 backdrop-blur-sm border-b border-gray-800">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <div class="w-8 h-8 bg-gray-700 rounded flex items-center justify-center">
-        <span class="text-sm">BA</span>
-      </div>
-      <span class="text-gray-400 text-sm">A Creative Developer</span>
-    </div>
-
-    <div class="hidden md:flex items-center gap-8">
-      <a href="#home" class="text-gray-300 hover:text-white transition-colors">Home</a>
-      <a href="#services" class="text-gray-300 hover:text-white transition-colors">Services</a>
-      <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
-
-      <!-- React version was a button; in static HTML we make it an anchor -->
-      <a href="#about" class="bg-[#d4ff00] text-black px-6 py-2 rounded hover:bg-[#c4ef00] transition-colors">
-        About Me
+<header class="bg-grid">
+  <div class="container-1200 relative">
+    <div class="flex items-center justify-between pt-10 pb-10">
+      <a href="#top" class="text-2xl font-bold" style="font-family:Poppins,Inter,sans-serif; text-decoration:none; color:var(--fg);">
+        Ixhen<span class="gray-lead">.</span>
       </a>
+
+      <nav class="pill-nav hidden md:flex items-center gap-12 px-11 py-4">
+        <a href="#top" class="text-sm font-semibold" style="color:var(--muted-2); text-decoration:none; font-family:Poppins,Inter,sans-serif;">Home</a>
+        <a href="#portfolio" class="text-sm font-semibold" style="color:var(--muted-2); text-decoration:none; font-family:Poppins,Inter,sans-serif;">Portfolio</a>
+        <a href="#contact" class="text-sm font-semibold" style="color:var(--muted-2); text-decoration:none; font-family:Poppins,Inter,sans-serif;">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a class="btn-outline" href="https://www.linkedin.com/in/ixhen-hasani/" target="_blank" rel="noreferrer">
+          <span aria-hidden="true" class="inline-flex items-center justify-center w-5 h-5 rounded" style="border:1px solid var(--border); font-weight:700;">in</span>
+          <span style="font-family:Inter,system-ui,sans-serif; font-weight:600;">Get In Touch</span>
+        </a>
+
+        <button id="theme-toggle" class="btn-outline" type="button" aria-pressed="false" title="Toggle theme">
+          <span aria-hidden="true">🌗</span>
+          <span class="hidden sm:inline" style="font-weight:600;">Theme</span>
+        </button>
+      </div>
     </div>
   </div>
-</nav>
+</header>

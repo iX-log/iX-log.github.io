@@ -1,472 +1,346 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="js">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Home · ix-dev</title>
+    <meta name="description" content="Ixhen — iOS Tech Lead / iOS Developer in Munich." />
+
+    <!-- Tailwind CDN (kept minimal, good enough for layout spacing + responsiveness) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
 
   <body>
-    <div class="page min-h-screen bg-[#2a2a2a] text-white" id="top">
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#2a2a2a]/95 backdrop-blur-sm border-b border-gray-800">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <div class="w-8 h-8 bg-gray-700 rounded flex items-center justify-center">
-        <span class="text-sm">BA</span>
+    <div class="page min-h-screen" id="top">
+  <header class="bg-grid">
+  <div class="container-1200 relative">
+    <div class="flex items-center justify-between pt-10 pb-10">
+      <a href="#top" class="text-2xl font-bold" style="font-family:Poppins,Inter,sans-serif; text-decoration:none; color:var(--fg);">
+        Ixhen<span class="gray-lead">.</span>
+      </a>
+
+      <nav class="pill-nav hidden md:flex items-center gap-12 px-11 py-4">
+        <a href="#top" class="text-sm font-semibold" style="color:var(--muted-2); text-decoration:none; font-family:Poppins,Inter,sans-serif;">Home</a>
+        <a href="#portfolio" class="text-sm font-semibold" style="color:var(--muted-2); text-decoration:none; font-family:Poppins,Inter,sans-serif;">Portfolio</a>
+        <a href="#contact" class="text-sm font-semibold" style="color:var(--muted-2); text-decoration:none; font-family:Poppins,Inter,sans-serif;">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a class="btn-outline" href="https://www.linkedin.com/in/ixhen-hasani/" target="_blank" rel="noreferrer">
+          <span aria-hidden="true" class="inline-flex items-center justify-center w-5 h-5 rounded" style="border:1px solid var(--border); font-weight:700;">in</span>
+          <span style="font-family:Inter,system-ui,sans-serif; font-weight:600;">Get In Touch</span>
+        </a>
+
+        <button id="theme-toggle" class="btn-outline" type="button" aria-pressed="false" title="Toggle theme">
+          <span aria-hidden="true">🌗</span>
+          <span class="hidden sm:inline" style="font-weight:600;">Theme</span>
+        </button>
       </div>
-      <span class="text-gray-400 text-sm">A Creative Developer</span>
     </div>
+  </div>
+</header>
 
-    <div class="hidden md:flex items-center gap-8">
-      <a href="#home" class="text-gray-300 hover:text-white transition-colors">Home</a>
-      <a href="#services" class="text-gray-300 hover:text-white transition-colors">Services</a>
-      <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+  <main>
+    <section class="bg-grid">
+  <div class="container-1200 relative">
+    <div class="flex flex-col items-center text-center pb-10">
+      <div class="mt-2 mb-6">
+        <div class="relative" style="width:290px;height:290px;">
+          <img src="/assets/img/avatar.png" alt="Avatar" class="rounded-full w-full h-full object-cover" />
+          <div aria-hidden="true" class="absolute inset-0 rounded-full" style="border: 10px solid rgba(255,255,255,0.90); box-shadow: 0 0 1.8px rgba(0,0,0,0.30), 0 3.6px 54px rgba(0,0,0,0.08), 0 0 27px rgba(0,0,0,0.03);"></div>
+        </div>
+      </div>
 
-      <!-- React version was a button; in static HTML we make it an anchor -->
-      <a href="#about" class="bg-[#d4ff00] text-black px-6 py-2 rounded hover:bg-[#c4ef00] transition-colors">
-        About Me
+      <div class="flex gap-2 flex-wrap justify-center mb-5">
+        <span class="chip">iOS</span>
+        <span class="chip">CarPlay</span>
+        <span class="chip">SwiftUI</span>
+      </div>
+
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-4" style="font-family:Poppins,Inter,sans-serif;">
+        <span class="gray-lead">Ix</span><span>hen</span>
+      </h1>
+
+      <p class="text-lg max-w-2xl mb-7" style="color:var(--muted);">
+        iOS Tech Lead / iOS Developer based in Munich — building polished SwiftUI experiences and shipping production apps (including CarPlay).
+      </p>
+
+      <a class="btn-outline" href="mailto:ixhen.dev@gmail.com">
+        <span aria-hidden="true" class="inline-flex items-center justify-center w-5 h-5 rounded" style="border:1px solid var(--border);">✉️</span>
+        <span style="font-weight:600;">Contact Me</span>
       </a>
     </div>
   </div>
-</nav>
-
-  <main>
-    <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20">
-  <div class="text-center max-w-4xl">
-    <p class="text-gray-400 mb-4 tracking-wide">HELLO, WELCOME</p>
-    <h1 class="text-5xl md:text-7xl mb-4">HEY, I'M ixhen.</h1>
-    <h2 class="text-5xl md:text-7xl mb-8">A CREATIVE DEVELOPER</h2>
-    <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
-      I design and code beautifully simple things, and I love what I do.
-    </p>
-    <button class="bg-[#d4ff00] text-black px-8 py-3 rounded hover:bg-[#c4ef00] transition-colors">
-      Download CV
-    </button>
-  </div>
 </section>
-    <section id="about" class="py-20 px-6">
-  <div class="max-w-6xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-12 mb-16">
+    <section class="section">
+  <div class="container-1200">
+    <div class="grid md:grid-cols-2 gap-10 items-start">
       <div>
-        <p class="text-[#d4ff00] mb-2 text-sm tracking-wide">Ixhen - Hasani</p>
-        <h3 class="text-3xl mb-6">
-          Lead product engineer
-          <br />
-          and creative director
+        <h2 class="section-title font-bold" style="font-family:Poppins,Inter,sans-serif;">
+          My <span class="gray-lead">Journey</span>
+        </h2>
+      </div>
+
+      <div class="space-y-4" style="color:var(--muted);">
+        <p>
+          I’m Ixhen — an iOS Tech Lead focused on building clean, reliable, and delightful mobile experiences.
+          I enjoy shipping new features end-to-end, from architecture to UI polish.
+        </p>
+        <p>
+          Most recently I’ve been leading the Lamborghini Unica CarPlay app as the sole full-time iOS developer,
+          with a strong focus on SwiftUI navigation, async/await architecture, and production-quality UX.
+        </p>
+      </div>
+    </div>
+
+    <!-- Work History -->
+    <div class="mt-16 grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h3 class="section-title font-bold" style="font-family:Poppins,Inter,sans-serif; font-size:40px;">
+          Work <span class="gray-lead">History</span>
         </h3>
       </div>
 
-      <div class="text-gray-400 space-y-4">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-
-        <div class="flex gap-4 pt-4">
-          <div class="bg-[#3a3a3a] px-6 py-3 rounded">
-            <span class="text-[#d4ff00]">WEBSITE</span>
-          </div>
-          <div class="bg-[#3a3a3a] px-6 py-3 rounded">
-            <span class="text-[#d4ff00]">LINKEDIN</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-[#3a3a3a] p-8 rounded text-center">
-        <div class="text-5xl mb-4">9+</div>
-        <div class="text-gray-400">YEARS OF EXPERIENCE</div>
-      </div>
-      <div class="bg-[#3a3a3a] p-8 rounded text-center">
-        <div class="text-5xl mb-4">50+</div>
-        <div class="text-gray-400">PROJECT COMPLETED</div>
-      </div>
-      <div class="bg-[#3a3a3a] p-8 rounded text-center">
-        <div class="text-5xl mb-4">30+</div>
-        <div class="text-gray-400">HAPPY CLIENTS</div>
-      </div>
-    </div>
-  </div>
-</section>
-    <section id="portfolio" class="py-20 px-6 bg-[#242424]">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <p class="text-[#d4ff00] mb-2 text-sm tracking-wide">LATEST PROJECT</p>
-      <h2 class="text-4xl">MY PORTFOLIO</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <!-- 1 -->
-      <div class="bg-[#2a2a2a] rounded-lg overflow-hidden group cursor-pointer hover:transform hover:scale-105 transition-all">
-        <div class="aspect-video overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1683813479742-4730f91fa3ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYXB0b3AlMjBjb2RpbmclMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzY3NzA0Mjc2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Charity Landing App"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div class="p-6">
-          <p class="text-[#d4ff00] text-xs mb-2">WEB DESIGN</p>
-          <h3 class="text-xl mb-4">Charity Landing App</h3>
-          <div class="flex gap-2 flex-wrap">
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">HTML</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">CSS</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">JAVASCRIPT</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2 -->
-      <div class="bg-[#2a2a2a] rounded-lg overflow-hidden group cursor-pointer hover:transform hover:scale-105 transition-all">
-        <div class="aspect-video overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzY3NzAwODIwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Media App Designe"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div class="p-6">
-          <p class="text-[#d4ff00] text-xs mb-2">WEB DESIGN</p>
-          <h3 class="text-xl mb-4">Media App Designe</h3>
-          <div class="flex gap-2 flex-wrap">
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">HTML</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">CSS</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">JAVASCRIPT</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3 -->
-      <div class="bg-[#2a2a2a] rounded-lg overflow-hidden group cursor-pointer hover:transform hover:scale-105 transition-all">
-        <div class="aspect-video overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1665470909939-959569b20021?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkYXNoYm9hcmQlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzY3NjE1MzM2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Dashboard Interface"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div class="p-6">
-          <p class="text-[#d4ff00] text-xs mb-2">WEB DESIGN</p>
-          <h3 class="text-xl mb-4">Dashboard Interface</h3>
-          <div class="flex gap-2 flex-wrap">
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">HTML</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">CSS</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">REACT</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="bg-[#2a2a2a] rounded-lg overflow-hidden group cursor-pointer hover:transform hover:scale-105 transition-all">
-        <div class="aspect-video overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1609203673123-56fff9f4ceff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwbGFuZGluZyUyMHBhZ2V8ZW58MXx8fHwxNzY3NzA0Mjc3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="History Website"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div class="p-6">
-          <p class="text-[#d4ff00] text-xs mb-2">WEB DESIGN</p>
-          <h3 class="text-xl mb-4">History Website</h3>
-          <div class="flex gap-2 flex-wrap">
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">HTML</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">CSS</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">JAVASCRIPT</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="bg-[#2a2a2a] rounded-lg overflow-hidden group cursor-pointer hover:transform hover:scale-105 transition-all">
-        <div class="aspect-video overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1625436274459-c1971c80942e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaG90b2dyYXBoeSUyMHBvcnRmb2xpb3xlbnwxfHx8fDE3Njc2NTExMTR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Photography App"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div class="p-6">
-          <p class="text-[#d4ff00] text-xs mb-2">WEB DESIGN</p>
-          <h3 class="text-xl mb-4">Photography App</h3>
-          <div class="flex gap-2 flex-wrap">
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">HTML</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">CSS</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">REACT</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6 -->
-      <div class="bg-[#2a2a2a] rounded-lg overflow-hidden group cursor-pointer hover:transform hover:scale-105 transition-all">
-        <div class="aspect-video overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1658297063569-162817482fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlfGVufDF8fHx8MTc2NzYyMjM1N3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Ecom's Web Landing Page"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div class="p-6">
-          <p class="text-[#d4ff00] text-xs mb-2">WEB DESIGN</p>
-          <h3 class="text-xl mb-4">Ecom's Web Landing Page</h3>
-          <div class="flex gap-2 flex-wrap">
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">HTML</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">CSS</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">JAVASCRIPT</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-    <section id="portfolio" class="py-20 px-6 bg-[#242424]">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <p class="text-[#d4ff00] mb-2 text-sm tracking-wide">LATEST PROJECT</p>
-      <h2 class="text-4xl">MY PORTFOLIO</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <!-- 1 -->
-      <div class="bg-[#2a2a2a] rounded-lg overflow-hidden group cursor-pointer hover:transform hover:scale-105 transition-all">
-        <div class="aspect-video overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1683813479742-4730f91fa3ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYXB0b3AlMjBjb2RpbmclMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzY3NzA0Mjc2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Charity Landing App"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div class="p-6">
-          <p class="text-[#d4ff00] text-xs mb-2">WEB DESIGN</p>
-          <h3 class="text-xl mb-4">Charity Landing App</h3>
-          <div class="flex gap-2 flex-wrap">
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">HTML</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">CSS</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">JAVASCRIPT</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2 -->
-      <div class="bg-[#2a2a2a] rounded-lg overflow-hidden group cursor-pointer hover:transform hover:scale-105 transition-all">
-        <div class="aspect-video overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzY3NzAwODIwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Media App Designe"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div class="p-6">
-          <p class="text-[#d4ff00] text-xs mb-2">WEB DESIGN</p>
-          <h3 class="text-xl mb-4">Media App Designe</h3>
-          <div class="flex gap-2 flex-wrap">
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">HTML</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">CSS</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">JAVASCRIPT</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3 -->
-      <div class="bg-[#2a2a2a] rounded-lg overflow-hidden group cursor-pointer hover:transform hover:scale-105 transition-all">
-        <div class="aspect-video overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1665470909939-959569b20021?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkYXNoYm9hcmQlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzY3NjE1MzM2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Dashboard Interface"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div class="p-6">
-          <p class="text-[#d4ff00] text-xs mb-2">WEB DESIGN</p>
-          <h3 class="text-xl mb-4">Dashboard Interface</h3>
-          <div class="flex gap-2 flex-wrap">
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">HTML</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">CSS</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">REACT</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="bg-[#2a2a2a] rounded-lg overflow-hidden group cursor-pointer hover:transform hover:scale-105 transition-all">
-        <div class="aspect-video overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1609203673123-56fff9f4ceff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwbGFuZGluZyUyMHBhZ2V8ZW58MXx8fHwxNzY3NzA0Mjc3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="History Website"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div class="p-6">
-          <p class="text-[#d4ff00] text-xs mb-2">WEB DESIGN</p>
-          <h3 class="text-xl mb-4">History Website</h3>
-          <div class="flex gap-2 flex-wrap">
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">HTML</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">CSS</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">JAVASCRIPT</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="bg-[#2a2a2a] rounded-lg overflow-hidden group cursor-pointer hover:transform hover:scale-105 transition-all">
-        <div class="aspect-video overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1625436274459-c1971c80942e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaG90b2dyYXBoeSUyMHBvcnRmb2xpb3xlbnwxfHx8fDE3Njc2NTExMTR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Photography App"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div class="p-6">
-          <p class="text-[#d4ff00] text-xs mb-2">WEB DESIGN</p>
-          <h3 class="text-xl mb-4">Photography App</h3>
-          <div class="flex gap-2 flex-wrap">
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">HTML</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">CSS</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">REACT</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6 -->
-      <div class="bg-[#2a2a2a] rounded-lg overflow-hidden group cursor-pointer hover:transform hover:scale-105 transition-all">
-        <div class="aspect-video overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1658297063569-162817482fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlfGVufDF8fHx8MTc2NzYyMjM1N3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Ecom's Web Landing Page"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div class="p-6">
-          <p class="text-[#d4ff00] text-xs mb-2">WEB DESIGN</p>
-          <h3 class="text-xl mb-4">Ecom's Web Landing Page</h3>
-          <div class="flex gap-2 flex-wrap">
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">HTML</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">CSS</span>
-            <span class="text-xs bg-[#3a3a3a] px-3 py-1 rounded">JAVASCRIPT</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-    <section id="contact" class="py-20 px-6 bg-[#242424]">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <p class="text-[#d4ff00] mb-2 text-sm tracking-wide">CONNECT WITH ME</p>
-      <h2 class="text-4xl">CONTACT ME</h2>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-12">
-      <div>
-        <div class="mb-8">
-          <p class="text-gray-400 mb-6">
-            Feel free to get in touch with me. I am always open to discussing new projects,
-            creative ideas or opportunities to be part of your visions.
+      <div class="space-y-4">
+        <article class="card p-5">
+          <div class="font-semibold" style="color:var(--fg);">Lamborghini Unica CarPlay</div>
+          <div class="text-sm" style="color:var(--muted);">iOS Tech Lead · Sep 2024 – Present · Munich</div>
+          <p class="text-sm mt-3" style="color:var(--muted);">
+            Built and shipped CarPlay features end-to-end with a modern SwiftUI + async/await architecture.
           </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="chip">SwiftUI</span><span class="chip">CarPlay</span><span class="chip">Architecture</span>
+          </div>
+        </article>
 
-          <div class="flex gap-4 mb-8">
-            <a href="#" class="w-10 h-10 bg-[#3a3a3a] rounded-full flex items-center justify-center hover:bg-[#d4ff00] hover:text-black transition-colors" aria-label="GitHub">
-              <span class="text-sm font-bold">GH</span>
-            </a>
-            <a href="#" class="w-10 h-10 bg-[#3a3a3a] rounded-full flex items-center justify-center hover:bg-[#d4ff00] hover:text-black transition-colors" aria-label="LinkedIn">
-              <span class="text-sm font-bold">in</span>
-            </a>
-            <a href="#" class="w-10 h-10 bg-[#3a3a3a] rounded-full flex items-center justify-center hover:bg-[#d4ff00] hover:text-black transition-colors" aria-label="YouTube">
-              <span class="text-sm font-bold">YT</span>
-            </a>
-            <a href="#" class="w-10 h-10 bg-[#3a3a3a] rounded-full flex items-center justify-center hover:bg-[#d4ff00] hover:text-black transition-colors" aria-label="Facebook">
-              <span class="text-sm font-bold">f</span>
-            </a>
-            <a href="#" class="w-10 h-10 bg-[#3a3a3a] rounded-full flex items-center justify-center hover:bg-[#d4ff00] hover:text-black transition-colors" aria-label="Instagram">
-              <span class="text-sm font-bold">IG</span>
-            </a>
+        <article class="card p-5">
+          <div class="font-semibold" style="color:var(--fg);">myAudi</div>
+          <div class="text-sm" style="color:var(--muted);">iOS Developer · Aug 2022 – Sep 2024</div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="chip">iOS</span><span class="chip">Product</span><span class="chip">Delivery</span>
           </div>
-        </div>
+        </article>
 
-        <div class="space-y-4">
-          <div class="bg-[#3a3a3a] p-4 rounded">
-            <p class="text-[#d4ff00] text-sm mb-1">EMAIL</p>
-            <p class="text-gray-300">info@ixhendesigns.com</p>
+        <article class="card p-5">
+          <div class="font-semibold" style="color:var(--fg);">VW Remote Park Assist</div>
+          <div class="text-sm" style="color:var(--muted);">iOS Developer · Jul 2021 – Aug 2022</div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="chip">iOS</span><span class="chip">Automotive</span>
           </div>
-          <div class="bg-[#3a3a3a] p-4 rounded">
-            <p class="text-[#d4ff00] text-sm mb-1">PHONE</p>
-            <p class="text-gray-300">+123 456 7890</p>
+        </article>
+
+        <article class="card p-5">
+          <div class="font-semibold" style="color:var(--fg);">Porsche Connect / myPorsche</div>
+          <div class="text-sm" style="color:var(--muted);">iOS Developer · Nov 2020 – Jul 2021</div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="chip">iOS</span><span class="chip">App Features</span>
           </div>
-        </div>
+        </article>
       </div>
+    </div>
 
+    <!-- Education -->
+    <div class="mt-16 grid md:grid-cols-2 gap-10 items-start">
       <div>
-        <form id="contactForm" class="space-y-4">
-          <div class="grid grid-cols-2 gap-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              class="bg-[#3a3a3a] px-4 py-3 rounded text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#d4ff00]"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              class="bg-[#3a3a3a] px-4 py-3 rounded text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#d4ff00]"
-              required
-            />
-          </div>
-
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows="6"
-            class="w-full bg-[#3a3a3a] px-4 py-3 rounded text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#d4ff00]"
-            required
-          ></textarea>
-
-          <button type="submit" class="w-full bg-[#d4ff00] text-black py-3 rounded hover:bg-[#c4ef00] transition-colors">
-            Send Message
-          </button>
-        </form>
+        <h3 class="section-title font-bold" style="font-family:Poppins,Inter,sans-serif; font-size:40px;">
+          Education <span class="gray-lead">& Courses</span>
+        </h3>
       </div>
+
+      <div class="space-y-4">
+        <article class="card p-5">
+          <div class="font-semibold" style="color:var(--fg);">Technical University of Munich (TUM)</div>
+          <div class="text-sm" style="color:var(--muted);">M.Sc. Computer Science</div>
+        </article>
+
+        <article class="card p-5">
+          <div class="font-semibold" style="color:var(--fg);">Google Professional Machine Learning Engineer</div>
+          <div class="text-sm" style="color:var(--muted);">In progress</div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Skill Set -->
+    <div class="mt-16 grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h3 class="section-title font-bold" style="font-family:Poppins,Inter,sans-serif; font-size:40px;">
+          Skill <span class="gray-lead">Set</span>
+        </h3>
+      </div>
+
+      <div class="space-y-6">
+        <div>
+          <div class="font-semibold mb-3" style="color:var(--fg);">iOS</div>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip">Swift</span><span class="chip">SwiftUI</span><span class="chip">UIKit</span><span class="chip">Concurrency</span><span class="chip">Testing</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="font-semibold mb-3" style="color:var(--fg);">Architecture</div>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip">Async/Await</span><span class="chip">MVVM</span><span class="chip">DI</span><span class="chip">Modularization</span><span class="chip">API Integration</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="font-semibold mb-3" style="color:var(--fg);">AI / ML</div>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip">Core ML</span><span class="chip">Vision</span><span class="chip">On-device inference</span><span class="chip">Product thinking</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <section class="section" id="portfolio">
+  <div class="container-1200 text-center">
+    <h2 class="section-title font-bold mb-3" style="font-family:Poppins,Inter,sans-serif;">
+      Portfolio
+    </h2>
+    <p class="text-sm mb-10" style="color:var(--muted);">Check out what I’ve been working on lately</p>
+
+    <div class="grid md:grid-cols-2 gap-6 text-left">
+      <!-- Card 1 -->
+      <article class="card overflow-hidden">
+        <img src="/assets/img/portfolio-1.png" alt="Project preview" class="w-full h-64 object-cover" />
+        <div class="p-5">
+          <div class="font-semibold">Lamborghini Unica CarPlay</div>
+          <p class="text-sm mt-2" style="color:var(--muted);">
+            SwiftUI-first CarPlay app with modern navigation and async architecture, built and shipped end-to-end.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="chip">SwiftUI</span><span class="chip">CarPlay</span><span class="chip">iOS</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card overflow-hidden">
+        <img src="/assets/img/portfolio-1.png" alt="Project preview" class="w-full h-64 object-cover" />
+        <div class="p-5">
+          <div class="font-semibold">isNunu</div>
+          <p class="text-sm mt-2" style="color:var(--muted);">
+            On-device image classification app to detect whether a given husky is my dog or not.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="chip">Core ML</span><span class="chip">Vision</span><span class="chip">iOS</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="mt-10">
+      <a class="btn-outline" href="https://github.com/iX-log" target="_blank" rel="noreferrer">
+        <span aria-hidden="true">↗</span>
+        <span style="font-weight:600;">View All</span>
+      </a>
+    </div>
+  </div>
+</section>
+    <section class="section" id="services">
+  <div class="container-1200 text-center">
+    <h2 class="section-title font-bold mb-3" style="font-family:Poppins,Inter,sans-serif;">
+      Design & Development <span class="gray-lead">Toolbox</span>
+    </h2>
+    <p class="text-sm mb-10" style="color:var(--muted);">
+      A small collection of tools I use to build, ship, and iterate quickly.
+    </p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-3 justify-center">
+      
+      
+        <div class="card py-5 px-3 text-sm font-semibold" style="color:var(--muted-2);">Swift</div>
+      
+        <div class="card py-5 px-3 text-sm font-semibold" style="color:var(--muted-2);">SwiftUI</div>
+      
+        <div class="card py-5 px-3 text-sm font-semibold" style="color:var(--muted-2);">Xcode</div>
+      
+        <div class="card py-5 px-3 text-sm font-semibold" style="color:var(--muted-2);">CarPlay</div>
+      
+        <div class="card py-5 px-3 text-sm font-semibold" style="color:var(--muted-2);">Git</div>
+      
+        <div class="card py-5 px-3 text-sm font-semibold" style="color:var(--muted-2);">GitHub</div>
+      
+        <div class="card py-5 px-3 text-sm font-semibold" style="color:var(--muted-2);">Figma</div>
+      
+        <div class="card py-5 px-3 text-sm font-semibold" style="color:var(--muted-2);">Python</div>
+      
+    </div>
+  </div>
+</section>
+    <section class="section bg-grid" id="contact">
+  <div class="container-1200 text-center relative">
+    <div class="section-kicker mb-3">Crafting Experiences That Matter</div>
+    <h2 class="section-title font-bold mb-4" style="font-family:Poppins,Inter,sans-serif;">
+      Get in <span class="gray-lead">Touch</span>
+    </h2>
+
+    <p class="text-sm max-w-2xl mx-auto mb-7" style="color:var(--muted);">
+      Want to discuss an iOS project, CarPlay, or AI/ML integration? I’m always happy to connect.
+    </p>
+
+    <div class="flex justify-center gap-3 mb-10">
+      <a class="btn-outline" href="mailto:ixhen.dev@gmail.com">
+        <span aria-hidden="true">✉️</span><span style="font-weight:600;">Email Me</span>
+      </a>
+      <a class="btn-outline" href="https://www.linkedin.com/in/ixhen-hasani/" target="_blank" rel="noreferrer">
+        <span aria-hidden="true" class="inline-flex items-center justify-center w-5 h-5 rounded" style="border:1px solid var(--border); font-weight:700;">in</span>
+        <span style="font-weight:600;">LinkedIn</span>
+      </a>
+    </div>
+
+    <div class="max-w-xl mx-auto card p-6 text-left">
+      <form id="contact-form">
+        <label class="block text-sm mb-2" style="color:var(--muted-2);">Full Name</label>
+        <input name="name" class="w-full mb-4 rounded-lg px-4 py-3" style="border:1px solid var(--border); background: transparent; color: var(--fg);" placeholder="Your name" />
+
+        <label class="block text-sm mb-2" style="color:var(--muted-2);">Email</label>
+        <input name="email" type="email" class="w-full mb-4 rounded-lg px-4 py-3" style="border:1px solid var(--border); background: transparent; color: var(--fg);" placeholder="you@email.com" />
+
+        <label class="block text-sm mb-2" style="color:var(--muted-2);">Subject</label>
+        <input name="subject" class="w-full mb-4 rounded-lg px-4 py-3" style="border:1px solid var(--border); background: transparent; color: var(--fg);" placeholder="Let’s talk iOS" />
+
+        <label class="block text-sm mb-2" style="color:var(--muted-2);">Description</label>
+        <textarea name="message" rows="5" class="w-full mb-5 rounded-lg px-4 py-3" style="border:1px solid var(--border); background: transparent; color: var(--fg);" placeholder="Enter a description..."></textarea>
+
+        <button class="btn-outline w-full justify-center" type="submit">
+          <span aria-hidden="true">📨</span><span style="font-weight:700;">Send</span>
+        </button>
+      </form>
     </div>
   </div>
 </section>
   </main>
 
-  <footer class="py-8 px-6 border-t border-gray-800">
-  <div class="max-w-6xl mx-auto">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-      <p class="text-gray-400 text-sm">© 2025 ixhen Santos. All rights reserved.</p>
+  <footer class="py-10">
+  <div class="container-1200 text-center">
+    <div class="mb-4" style="font-family:Poppins,Inter,sans-serif; font-weight:700;">
+      Ixhen<span class="gray-lead">.</span>
+    </div>
 
-      <div class="flex gap-4">
-        <a href="#" class="text-gray-400 hover:text-[#d4ff00] transition-colors" aria-label="GitHub">GH</a>
-        <a href="#" class="text-gray-400 hover:text-[#d4ff00] transition-colors" aria-label="LinkedIn">in</a>
-        <a href="#" class="text-gray-400 hover:text-[#d4ff00] transition-colors" aria-label="YouTube">YT</a>
-        <a href="#" class="text-gray-400 hover:text-[#d4ff00] transition-colors" aria-label="Facebook">f</a>
-        <a href="#" class="text-gray-400 hover:text-[#d4ff00] transition-colors" aria-label="Instagram">IG</a>
-      </div>
+    <h3 class="text-2xl font-bold mb-2" style="font-family:Poppins,Inter,sans-serif;">Let’s Stay Connected</h3>
+    <p class="text-sm mb-6" style="color:var(--muted);">
+      You can reach me via email, or find my work on GitHub / Medium.
+    </p>
+
+    <div class="flex justify-center gap-3 mb-8 flex-wrap">
+      <a class="btn-outline" href="mailto:ixhen.dev@gmail.com">Email</a>
+      <a class="btn-outline" href="https://github.com/iX-log" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="btn-outline" href="https://medium.com/@ixhen.dev" target="_blank" rel="noreferrer">Medium</a>
+      <a class="btn-outline" href="https://www.linkedin.com/in/ixhen-hasani/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+
+    <div class="text-sm" style="color:var(--muted); border-top:1px solid var(--border); padding-top:16px;">
+      © 2026 Ixhen. All rights reserved. · Munich
     </div>
   </div>
 </footer>
 </div>
-    <script src="/assets/js/main.js"></script>
+
+    <script src="/assets/js/main.js" defer></script>
   </body>
 </html>
