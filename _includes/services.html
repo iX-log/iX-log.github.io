@@ -1,0 +1,17 @@
+<section class="section" id="services">
+  <div class="container-1200 text-center">
+    <h2 class="section-title font-bold mb-3" style="font-family:Poppins,Inter,sans-serif;">
+      Design & Development <span class="gray-lead">Toolbox</span>
+    </h2>
+    <p class="text-sm mb-10" style="color:var(--muted);">
+      I might not be the sharpest tool in the shed, but these beauties definitely are.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-3">
+      {% assign tools = "Swift,SwiftUI,CarPlay,Vision,AI/ML,MERN" | split: "," %}
+      {% for t in tools %}
+        <div class="card py-5 px-3 text-sm font-semibold w-40" style="color:var(--muted-2);">{{ t }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

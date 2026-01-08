@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en" class="js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Home · ix-dev</title>
+    <meta name="description" content="Ixhen — iOS Tech Lead / iOS Developer in Munich." />
+
+    <!-- Tailwind CDN (kept minimal, good enough for layout spacing + responsiveness) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+
+  <body>
+    <div class="page min-h-screen" id="top">
+  <header class="bg-grid">
+  <div class="container-1200 relative">
+    <div class="flex items-center justify-between pt-10 pb-10">
+      <a href="#top" class="text-2xl font-bold" style="font-family:Poppins,Inter,sans-serif; text-decoration:none; color:var(--fg);">
+        Ixhen<span class="gray-lead">.</span>
+      </a>
+
+      <nav class="pill-nav hidden md:flex items-center gap-12 px-11 py-4">
+        <a href="#top" class="text-sm font-semibold" style="color:var(--muted-2); text-decoration:none; font-family:Poppins,Inter,sans-serif;">Home</a>
+        <a href="#portfolio" class="text-sm font-semibold" style="color:var(--muted-2); text-decoration:none; font-family:Poppins,Inter,sans-serif;">Portfolio</a>
+        <a href="#contact" class="text-sm font-semibold" style="color:var(--muted-2); text-decoration:none; font-family:Poppins,Inter,sans-serif;">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button id="theme-toggle" class="btn-outline" type="button" aria-pressed="false" title="Toggle theme">
+          <span aria-hidden="true">🌗</span>
+          <span class="hidden sm:inline" style="font-weight:600;">Theme</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <main>
+    <section class="bg-grid">
+  <div class="container-1200 relative">
+    <div class="flex flex-col items-center text-center pb-10">
+      <div class="mt-2 mb-6">
+        <div class="relative" style="width:290px;height:290px;">
+          <img src="/assets/img/avatar.png" alt="Avatar" class="rounded-full w-full h-full object-contain" />
+          <div aria-hidden="true" class="absolute inset-0 rounded-full" style="border: 10px solid rgba(255,255,255,0.90); box-shadow: 0 0 1.8px rgba(0,0,0,0.30), 0 3.6px 54px rgba(0,0,0,0.08), 0 0 27px rgba(0,0,0,0.03);"></div>
+        </div>
+      </div>
+
+      <div class="flex gap-2 flex-wrap justify-center mb-5">
+        <span class="chip">iOS</span>
+        <span class="chip">CarPlay</span>
+        <span class="chip">SwiftUI</span>
+      </div>
+
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-4" style="font-family:Poppins,Inter,sans-serif;">
+        <span class="gray-lead">Ixhen</span><span> Hasani</span>
+      </h1>
+
+      <p class="text-lg max-w-2xl mb-7" style="color:var(--muted);">
+        iOS Developer <br /><em>"If you’re good enough, you’re old enough"</em>
+      </p>
+    </div>
+  </div>
+</section>
+    <section class="section">
+    <div class="container-1200">
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+            <div>
+                <h2 class="section-title font-bold" style="font-family:Poppins,Inter,sans-serif;">
+                    In a <span class="gray-lead">nutshell</span>
+                </h2>
+            </div>
+
+            <div class="space-y-4" style="color:var(--muted);">
+                <p>
+                Hey, I’m Ixhen, an iOS engineer based in Munich, Germany.
+                
+                <br /><br />Yeah, I know my name sounds like a new iPhone model. Fitting, because since discovering my
+                love for Swift in 2020, I haven’t really spent a day away from it.
+                That’s a glitch in the matrix, if ever there was one.
+
+                <br /><br />On my professional journey, almost all of my projects have lived in the automotive and
+                connected-car space (Porsche, VW, Audi, Lamborghini).
+                And for a guy who knows nothing about cars, that qualifies as glitch number two.
+
+                <br /><br />It might sound cliché, but I really love software engineering. It still feels unreal somehow
+                getting paid to do this.
+                <br />That thrill still remains novel every time. The problem starts messy, and then I get to eliminate
+                the white noise until the solution looks obvious (chef's kiss 🤌).
+                </p>
+            </div>
+        </div>
+
+        <!-- Work History -->
+        <div class="mt-16 grid md:grid-cols-2 gap-10 items-start">
+            <div>
+                <h3 class="section-title font-bold" style="font-family:Poppins,Inter,sans-serif; font-size:40px;">
+                    Work <span class="gray-lead">History</span>
+                </h3>
+            </div>
+
+            <div class="space-y-4">
+                <article class="card p-5">
+                    <div class="font-semibold" style="color:var(--fg);">Lamborghini Unica CarPlay</div>
+                    <div class="text-sm" style="color:var(--muted);">iOS Tech Lead · Sep 2024 – Present</div>
+                </article>
+
+                <article class="card p-5">
+                    <div class="font-semibold" style="color:var(--fg);">myAudi</div>
+                    <div class="text-sm" style="color:var(--muted);">iOS Developer · Aug 2022 – Sep 2024</div>
+                </article>
+
+                <article class="card p-5">
+                    <div class="font-semibold" style="color:var(--fg);">VW Remote Park Assist</div>
+                    <div class="text-sm" style="color:var(--muted);">iOS Developer · Jul 2021 – Aug 2022</div>
+                </article>
+
+                <article class="card p-5">
+                    <div class="font-semibold" style="color:var(--fg);">Porsche Connect / myPorsche</div>
+                    <div class="text-sm" style="color:var(--muted);">iOS Developer · Nov 2020 – Jul 2021</div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="mt-16 grid md:grid-cols-2 gap-10 items-start">
+            <div>
+                <h3 class="section-title font-bold" style="font-family:Poppins,Inter,sans-serif; font-size:40px;">
+                    Alma <span class="gray-lead">Mater</span>
+                </h3>
+            </div>
+
+            <div class="space-y-4">
+                <article class="card p-5">
+                    <div class="font-semibold" style="color:var(--fg);">Technical University of Munich (TUM)</div>
+                    <div class="text-sm" style="color:var(--muted);">B.Sc. Computer Science</div>
+                </article>
+
+                <article class="card p-5">
+                    <div class="font-semibold" style="color:var(--fg);">Technical University of Munich (TUM)</div>
+                    <div class="text-sm" style="color:var(--muted);">M.Sc. Computer Science</div>
+                </article>
+                </article>
+            </div>
+        </div>
+
+        <!-- Skill Set 
+        <div class="mt-16 grid md:grid-cols-2 gap-10 items-start">
+            <div>
+                <h3 class="section-title font-bold" style="font-family:Poppins,Inter,sans-serif; font-size:40px;">
+                    Skill <span class="gray-lead">Set</span>
+                </h3>
+            </div>
+
+            <div class="space-y-6">
+                <div>
+                    <div class="font-semibold mb-3" style="color:var(--fg);">iOS</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="chip">Swift</span><span class="chip">SwiftUI</span><span
+                            class="chip">UIKit</span><span class="chip">Concurrency</span><span
+                            class="chip">Testing</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="font-semibold mb-3" style="color:var(--fg);">Architecture</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="chip">Async/Await</span><span class="chip">MVVM</span><span
+                            class="chip">DI</span><span class="chip">Modularization</span><span class="chip">API
+                            Integration</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="font-semibold mb-3" style="color:var(--fg);">AI / ML</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="chip">Core ML</span><span class="chip">Vision</span><span class="chip">On-device
+                            inference</span><span class="chip">Product thinking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+    </div>
+</section>
+    <section class="section" id="portfolio">
+  <div class="container-1200 text-center">
+    <h2 class="section-title font-bold mb-3" style="font-family:Poppins,Inter,sans-serif;">
+      Portfolio
+    </h2>
+    <p class="text-sm mb-10" style="color:var(--muted);">What do I do outside of "work"?</p>
+
+    <div class="grid md:grid-cols-2 gap-6 text-left">
+      <!-- Card 1 -->
+      <article class="card overflow-hidden h-full flex flex-col">
+        <img src="/assets/img/prince-philip-part-4.gif" alt="Project preview"
+          class="w-full h-64 object-cover" />
+        <div class="p-5">
+          <div class="font-semibold">Barebones CarPlay App</div>
+          <p class="text-sm mt-2" style="color:var(--muted);">
+            A straightforward, fluff-free guide to building a real CarPlay app in SwiftUI without CPTemplate.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="chip">SwiftUI</span><span class="chip">CarPlay</span><span class="chip">iOS</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <a href="https://aet.cit.tum.de/projects/courses/ipraktikum/24w/quartett-mobile/?video=kickoff" target="_blank"
+        rel="noreferrer" class="block h-full">
+        <article class="card overflow-hidden hover:opacity-95 transition h-full flex flex-col">
+          <div class="relative">
+          <img src="/assets/img/ipraktikum-kickoff-thumb-2.png" alt="Project preview"
+            class="w-full h-64 object-contain bg-black" />
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center"
+              style="background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.30);">
+              <span aria-hidden="true" style="color: #fff; font-size: 28px; line-height: 1;">▶</span>
+            </div>
+          </div>
+        </div>
+          <div class="p-5">
+            <div class="font-semibold"> SpaceGem App</div>
+            <p class="text-sm mt-2" style="color:var(--muted);">
+              TUM iPraktikum: Quartett Mobile Project Pitch
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="chip">TUM</span>
+              <span class="chip">iPraktikum</span> 
+              <span class="chip">VisionOS</span>
+            </div>
+          </div>
+        </article>
+      </a>
+    </div>
+
+    <div class="mt-10">
+      <a class="btn-outline" href="https://medium.com/@ixhen.dev" target="_blank" rel="noreferrer">
+        <span aria-hidden="true">↗</span>
+        <span style="font-weight:600;">View More</span>
+      </a>
+    </div>
+  </div>
+</section>
+    <section class="section" id="services">
+  <div class="container-1200 text-center">
+    <h2 class="section-title font-bold mb-3" style="font-family:Poppins,Inter,sans-serif;">
+      Design & Development <span class="gray-lead">Toolbox</span>
+    </h2>
+    <p class="text-sm mb-10" style="color:var(--muted);">
+      I might not be the sharpest tool in the shed, but these beauties definitely are.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-3">
+      
+      
+        <div class="card py-5 px-3 text-sm font-semibold w-40" style="color:var(--muted-2);">Swift</div>
+      
+        <div class="card py-5 px-3 text-sm font-semibold w-40" style="color:var(--muted-2);">SwiftUI</div>
+      
+        <div class="card py-5 px-3 text-sm font-semibold w-40" style="color:var(--muted-2);">CarPlay</div>
+      
+        <div class="card py-5 px-3 text-sm font-semibold w-40" style="color:var(--muted-2);">Vision</div>
+      
+        <div class="card py-5 px-3 text-sm font-semibold w-40" style="color:var(--muted-2);">AI/ML</div>
+      
+        <div class="card py-5 px-3 text-sm font-semibold w-40" style="color:var(--muted-2);">MERN</div>
+      
+    </div>
+  </div>
+</section>
+    <section class="section bg-grid" id="contact">
+  <div class="container-1200 text-center relative">
+    <!-- <div class="section-kicker mb-3">Lorem ipsum: Crafting Experiences That Matter</div> -->
+    <h2 class="section-title font-bold mb-4" style="font-family:Poppins,Inter,sans-serif;">
+      Get in <span class="gray-lead">Touch</span>
+    </h2>
+
+    <p class="text-sm max-w-2xl mx-auto mb-7" style="color:var(--muted);">
+      Want to discuss an iOS project, CarPlay, or AI/ML integration? Or why doggs are better than cats? <br />I’m always happy to connect.
+    </p>
+
+    <div class="flex justify-center gap-3 mb-10">
+      <a class="btn-outline" href="mailto:ixhen.dev@gmail.com">
+        <span aria-hidden="true">✉️</span><span style="font-weight:600;">Email</span>
+      </a>
+      <a class="btn-outline" href="https://www.linkedin.com/in/ixhen-hasani/" target="_blank" rel="noreferrer">
+        <span aria-hidden="true" class="inline-flex items-center justify-center w-5 h-5 rounded" style="border:1px solid var(--border); font-weight:700;">in</span>
+        <span style="font-weight:600;">LinkedIn</span>
+      </a>
+    </div>
+
+    <div class="max-w-xl mx-auto card p-6 text-left">
+      <form id="contact-form">
+        <label class="block text-sm mb-2" style="color:var(--muted-2);">Full Name</label>
+        <input name="name" class="w-full mb-4 rounded-lg px-4 py-3" style="border:1px solid var(--border); background: transparent; color: var(--fg);" placeholder="Your name" />
+
+        <label class="block text-sm mb-2" style="color:var(--muted-2);">Email</label>
+        <input name="email" type="email" class="w-full mb-4 rounded-lg px-4 py-3" style="border:1px solid var(--border); background: transparent; color: var(--fg);" placeholder="you@email.com" />
+
+        <label class="block text-sm mb-2" style="color:var(--muted-2);">Subject</label>
+        <input name="subject" class="w-full mb-4 rounded-lg px-4 py-3" style="border:1px solid var(--border); background: transparent; color: var(--fg);" placeholder="Let’s talk iOS" />
+
+        <label class="block text-sm mb-2" style="color:var(--muted-2);">Description</label>
+        <textarea name="message" rows="5" class="w-full mb-5 rounded-lg px-4 py-3" style="border:1px solid var(--border); background: transparent; color: var(--fg);" placeholder="Enter a description..."></textarea>
+
+        <button class="btn-outline w-full justify-center" type="submit">
+          <span aria-hidden="true">📨</span><span style="font-weight:700;">Send</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer class="py-10">
+  <div class="container-1200 text-center">
+    <div class="mb-4" style="font-family:Poppins,Inter,sans-serif; font-weight:700;">
+      Ixhen<span class="gray-lead">.Hasani</span>
+    </div>
+
+    <h3 class="text-2xl font-bold mb-2" style="font-family:Poppins,Inter,sans-serif;">Let’s Stay Connected</h3>
+    
+    <!--
+    <p class="text-sm mb-6" style="color:var(--muted);">
+      You can reach me via email, LinkedIn. Or you can find my work on Medium.
+    </p>
+    -->
+
+    <div class="flex justify-center gap-3 mb-8 flex-wrap">
+      <a class="btn-outline" href="mailto:ixhen.dev@gmail.com">Email</a>
+      <!-- <a class="btn-outline" href="https://github.com/iX-log" target="_blank" rel="noreferrer">GitHub</a> -->
+      <a class="btn-outline" href="https://medium.com/@ixhen.dev" target="_blank" rel="noreferrer">Medium</a>
+      <a class="btn-outline" href="https://www.linkedin.com/in/ixhen-hasani/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+
+    <div class="text-sm" style="color:var(--muted); border-top:1px solid var(--border); padding-top:16px;">
+      © 2026 Ixhen Hasani.
+    </div>
+  </div>
+</footer>
+</div>
+
+    <script src="/assets/js/main.js" defer></script>
+  </body>
+</html>

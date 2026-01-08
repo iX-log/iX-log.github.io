@@ -1,0 +1,15 @@
+title: ix-dev
+email: ixhen.dev@gmail.com
+url: "https://ix-dev.com"
+baseurl: ""
+
+# keep the build clean
+exclude:
+  - README.md
+  - docker-compose.yml
+  - node_modules
+  - package.json
+  - package-lock.json
+  - yarn.lock
+  - pnpm-lock.yaml
+  - docs

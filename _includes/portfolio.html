@@ -1,0 +1,60 @@
+<section class="section" id="portfolio">
+  <div class="container-1200 text-center">
+    <h2 class="section-title font-bold mb-3" style="font-family:Poppins,Inter,sans-serif;">
+      Portfolio
+    </h2>
+    <p class="text-sm mb-10" style="color:var(--muted);">What do I do outside of "work"?</p>
+
+    <div class="grid md:grid-cols-2 gap-6 text-left">
+      <!-- Card 1 -->
+      <article class="card overflow-hidden h-full flex flex-col">
+        <img src="{{ '/assets/img/prince-philip-part-4.gif' | relative_url }}" alt="Project preview"
+          class="w-full h-64 object-cover" />
+        <div class="p-5">
+          <div class="font-semibold">Barebones CarPlay App</div>
+          <p class="text-sm mt-2" style="color:var(--muted);">
+            A straightforward, fluff-free guide to building a real CarPlay app in SwiftUI without CPTemplate.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="chip">SwiftUI</span><span class="chip">CarPlay</span><span class="chip">iOS</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <a href="https://aet.cit.tum.de/projects/courses/ipraktikum/24w/quartett-mobile/?video=kickoff" target="_blank"
+        rel="noreferrer" class="block h-full">
+        <article class="card overflow-hidden hover:opacity-95 transition h-full flex flex-col">
+          <div class="relative">
+          <img src="{{ '/assets/img/ipraktikum-kickoff-thumb-2.png' | relative_url }}" alt="Project preview"
+            class="w-full h-64 object-contain bg-black" />
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center"
+              style="background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.30);">
+              <span aria-hidden="true" style="color: #fff; font-size: 28px; line-height: 1;">▶</span>
+            </div>
+          </div>
+        </div>
+          <div class="p-5">
+            <div class="font-semibold"> SpaceGem App</div>
+            <p class="text-sm mt-2" style="color:var(--muted);">
+              TUM iPraktikum: Quartett Mobile Project Pitch
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="chip">TUM</span>
+              <span class="chip">iPraktikum</span> 
+              <span class="chip">VisionOS</span>
+            </div>
+          </div>
+        </article>
+      </a>
+    </div>
+
+    <div class="mt-10">
+      <a class="btn-outline" href="https://medium.com/@ixhen.dev" target="_blank" rel="noreferrer">
+        <span aria-hidden="true">↗</span>
+        <span style="font-weight:600;">View More</span>
+      </a>
+    </div>
+  </div>
+</section>

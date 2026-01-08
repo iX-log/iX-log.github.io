@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap");
+
+/* ---------- Theme tokens (adapted from the zip's theme.css) ---------- */
+:root {
+  --bg: #ffffff;
+  --fg: #0b1220;
+
+  --muted: #667085;         /* gray text */
+  --muted-2: #475467;       /* darker gray */
+  --border: rgba(16, 24, 40, 0.12);
+
+  --card: #ffffff;
+  --chip-bg: #f9fafb;
+  --chip-border: #e4e7ec;
+
+  --shadow-soft: 0 2px 30px rgba(0, 0, 0, 0.08), 0 0 15px rgba(0, 0, 0, 0.03);
+  --shadow-button: inset 0 0 0 1px rgba(16, 24, 40, 0.18), inset 0 -2px 0 rgba(16, 24, 40, 0.05), 0 1px 2px rgba(16, 24, 40, 0.05);
+
+  --radius-xl: 9999px;
+  --radius-lg: 20px;
+}
+
+html.dark {
+  --bg: #0b0f19;
+  --fg: #f7f8fb;
+
+  --muted: rgba(255,255,255,0.70);
+  --muted-2: rgba(255,255,255,0.78);
+  --border: rgba(255, 255, 255, 0.14);
+
+  --card: rgba(255,255,255,0.06);
+  --chip-bg: rgba(255,255,255,0.07);
+  --chip-border: rgba(255,255,255,0.14);
+
+  --shadow-soft: 0 2px 30px rgba(0, 0, 0, 0.35), 0 0 15px rgba(0, 0, 0, 0.25);
+  --shadow-button: inset 0 0 0 1px rgba(255,255,255,0.16), inset 0 -2px 0 rgba(255,255,255,0.08), 0 1px 2px rgba(0,0,0,0.35);
+}
+
+/* ---------- Base ---------- */
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: Poppins, Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.container-1200 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+/* ---------- Background grid (Figma look) ---------- */
+.bg-grid {
+  position: relative;
+  overflow: hidden;
+}
+.bg-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+  background-image:
+    linear-gradient(to right, rgba(208, 213, 221, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(208, 213, 221, 0.35) 1px, transparent 1px);
+  background-size: 96px 96px;
+  pointer-events: none;
+}
+html.dark .bg-grid::before {
+  opacity: 0.22;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.10) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.10) 1px, transparent 1px);
+}
+.bg-grid::after {
+  content: "";
+  position: absolute;
+  inset: -220px -220px auto -220px;
+  height: 520px;
+  background: radial-gradient(closest-side, rgba(0,0,0,0.10), rgba(0,0,0,0));
+  pointer-events: none;
+}
+html.dark .bg-grid::after {
+  background: radial-gradient(closest-side, rgba(255,255,255,0.08), rgba(255,255,255,0));
+}
+
+/* ---------- Components ---------- */
+.pill-nav {
+  background: rgba(255,255,255,0.60);
+  backdrop-filter: blur(7.5px);
+  border-radius: 90px;
+  box-shadow: 0 0 1px rgba(0,0,0,0.30), var(--shadow-soft);
+  border: 1px solid rgba(208, 213, 221, 0.55);
+}
+html.dark .pill-nav {
+  background: rgba(20, 26, 38, 0.55);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 78px;
+  background: var(--card);
+  box-shadow: var(--shadow-button);
+  border: 1px solid rgba(208, 213, 221, 0.85);
+  color: var(--muted-2);
+  text-decoration: none;
+}
+html.dark .btn-outline {
+  border-color: rgba(255,255,255,0.16);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-xl);
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-border);
+  font-size: 14px;
+  color: var(--muted-2);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.chip:hover {
+  opacity: 0.9;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+.section {
+  padding: 84px 0;
+}
+.section-title {
+  font-size: 48px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.section-kicker {
+  color: var(--muted-2);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* small helper for “gray first word” headline */
+.gray-lead { color: var(--muted); }
