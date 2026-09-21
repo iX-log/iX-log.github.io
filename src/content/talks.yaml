@@ -1,0 +1,12 @@
+# PAST talks only. Do not list a talk here until it has happened (or been accepted and announced).
+- id: spacegem-pitch
+  order: 1
+  event: TUM iPraktikum
+  year: WS24/25
+  title: SpaceGem pitch
+  video: https://aet.cit.tum.de/projects/courses/ipraktikum/24w/quartett-mobile/?video=kickoff
+
+- id: past-carplay-talks
+  order: 2
+  todos:
+    - "Past CarPlay talks: add event, year, title and video link for each"

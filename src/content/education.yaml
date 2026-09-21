@@ -1,0 +1,8 @@
+- id: tum
+  school: Technical University of Munich (TUM)
+  degree: B.Sc. + M.Sc. Computer Science
+  start: '2015'
+  end: '2021'
+  thesis:
+    title: Stress Overthrow
+    summary: An iOS + watchOS app that recognizes stress from heart rate.

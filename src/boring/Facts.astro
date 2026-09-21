@@ -1,0 +1,16 @@
+---
+import { getEntry } from 'astro:content';
+const profile = (await getEntry('profile', 'main'))!.data;
+---
+<section aria-label="Key facts">
+  <div class="wrap facts">
+    {profile.facts.map((fact) => (
+      <article class="fact">
+        <p class="label">{fact.label}</p>
+        <h2>{fact.title}</h2>
+        <p>{fact.text}</p>
+        {fact.href && <a href={fact.href}>{fact.hrefLabel ?? 'Read more'} ↓</a>}
+      </article>
+    ))}
+  </div>
+</section>

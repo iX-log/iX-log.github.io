@@ -1,7 +1,0 @@
-{%- comment -%}
-  Visible placeholder marker. Renders only outside production, so GitHub Pages
-  (JEKYLL_ENV=production) never publishes it. Usage: {% include todo.html text="..." %}
-{%- endcomment -%}
-{%- unless jekyll.environment == "production" -%}
-<span class="todo">TODO: {{ include.text }}</span>
-{%- endunless -%}

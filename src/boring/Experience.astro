@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Todo from '../components/Todo.astro';
+const roles = (await getCollection('roles')).sort((a, b) => a.data.order - b.data.order);
+const span = (start: string, end: string) => `${start} – ${end}`;
+---
+<section id="experience" aria-labelledby="experience-title">
+  <div class="wrap">
+    <h2 class="section-title" id="experience-title">Experience</h2>
+    <div class="timeline">
+      {roles.map(({ data: r }) => (
+        <article class="entry">
+          <p class="when">{span(r.start, r.end)}</p>
+          <div>
+            <h3>{r.project}</h3>
+            <p class="sub">{r.title}</p>
+            <ul class="points">
+              {r.points.map((point) => <li>{point}</li>)}
+            </ul>
+            <Todo items={r.todos} />
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

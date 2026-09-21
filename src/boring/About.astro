@@ -1,0 +1,11 @@
+---
+import { getEntry } from 'astro:content';
+const profile = (await getEntry('profile', 'main'))!.data;
+---
+<section id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <h2 class="section-title" id="about-title">About</h2>
+    <p>{profile.about}</p>
+    <p style="margin-top:12px" class="mono"><span class="label">Languages</span> &nbsp;{profile.languages.join(' · ')}</p>
+  </div>
+</section>

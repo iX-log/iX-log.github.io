@@ -1,0 +1,7 @@
+---
+// Visible placeholder for a missing fact. No scoped styles on purpose: scripts/todos.mjs
+// finds these in dist/ via the data-todo attribute.
+interface Props { items?: string[] }
+const { items = [] } = Astro.props;
+---
+{items.map((text) => <div><span class="todo" data-todo>TODO: {text}</span></div>)}

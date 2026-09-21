@@ -1,0 +1,36 @@
+# Only facts from the brief. Missing facts go in `todos` and render as visible TODO badges.
+main:
+  name: Ixhen Hasani
+  role: iOS Tech Lead · CarPlay · On-device AI
+  location: Munich, Germany
+  description: >-
+    iOS Tech Lead in Munich. Built the Lamborghini Unica CarPlay layer in pure SwiftUI,
+    live on the Urus since Oct 2025. Building on-device-bench for Core ML.
+  facts:
+    - label: In production
+      title: Lamborghini Unica CarPlay
+      text: >-
+        I architected and built the CarPlay layer in pure SwiftUI, with no CPTemplate.
+        It has been in production on the Urus since Oct 2025.
+      href: '#experience'
+      hrefLabel: See the role
+    - label: Now building
+      title: on-device-bench
+      text: >-
+        An open harness that measures Core ML latency, memory, thermals and
+        quantization on iPhone.
+      href: '#bench'
+      hrefLabel: See the numbers
+  about: >-
+    Yes, the name sounds like a new iPhone model. I've been writing Swift every day since 2020,
+    so I've stopped fighting it. Almost everything I've shipped runs in a car: Porsche, VW, Audi,
+    Lamborghini. Now I'm working out which AI models can actually run next to it.
+  languages: [English, German, Italian, Spanish]
+  links:
+    email: ixhen.dev@gmail.com
+    linkedin: https://www.linkedin.com/in/ixhen-hasani/
+    github: https://github.com/iX-log
+    medium: https://medium.com/@ixhen.dev
+  # cvUrl: https://...   <- add the CV PDF URL here and delete the todo below
+  todos:
+    - "CV PDF URL: add cvUrl to profile.yaml"

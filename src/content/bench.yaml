@@ -1,0 +1,18 @@
+main:
+  name: on-device-bench
+  summary: >-
+    An open harness that measures Core ML latency, memory, thermals and quantization on iPhone.
+  status: In progress
+  # repo: https://github.com/...   <- add the public repo URL here and delete the todo below
+  readouts:
+    - value: 42 ms
+      label: warm inference
+    - value: 6–9 MB
+      label: RAM for a 39.4 MB model
+    - value: ~100 s
+      label: at full speed
+    - value: 2.6×
+      label: word errors at int4, for 3% speed
+  todos:
+    - "Repo URL: add repo to bench.yaml"
+    - "Measurement context: name the model, device and iOS version these numbers come from"

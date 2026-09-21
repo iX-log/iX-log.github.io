@@ -1,0 +1,20 @@
+---
+import { getEntry } from 'astro:content';
+import Todo from '../components/Todo.astro';
+const profile = (await getEntry('profile', 'main'))!.data;
+const { email, linkedin, github, medium } = profile.links;
+---
+<section id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <h2 class="section-title" id="contact-title">Contact</h2>
+    <p class="section-lead">Open to iOS Tech Lead roles, and to talking CarPlay or on-device AI.</p>
+    <div class="contact-links">
+      <a href={`mailto:${email}`}>{email}</a>
+      <a href={linkedin} rel="me noopener">LinkedIn</a>
+      <a href={github} rel="me noopener">GitHub</a>
+      <a href={medium} rel="me noopener">Medium</a>
+      {profile.cvUrl && <a href={profile.cvUrl}>CV (PDF)</a>}
+    </div>
+    <Todo items={profile.todos} />
+  </div>
+</section>

@@ -1,0 +1,22 @@
+---
+import { getEntry } from 'astro:content';
+import Todo from '../components/Todo.astro';
+const bench = (await getEntry('bench', 'main'))!.data;
+---
+<section id="bench" aria-labelledby="bench-title">
+  <div class="wrap">
+    <h2 class="section-title" id="bench-title">{bench.name}</h2>
+    <p class="label" style="margin:-12px 0 12px">Status · {bench.status}</p>
+    <p class="section-lead">{bench.summary}</p>
+    <dl class="readouts">
+      {bench.readouts.map((r) => (
+        <div class="readout">
+          <dt>{r.value}</dt>
+          <dd>{r.label}</dd>
+        </div>
+      ))}
+    </dl>
+    {bench.repo && <p><a href={bench.repo} rel="noopener">View on GitHub ↗</a></p>}
+    <Todo items={bench.todos} />
+  </div>
+</section>

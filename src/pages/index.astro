@@ -1,0 +1,44 @@
+---
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Header from '../boring/Header.astro';
+import Facts from '../boring/Facts.astro';
+import Experience from '../boring/Experience.astro';
+import Bench from '../boring/Bench.astro';
+import Writing from '../boring/Writing.astro';
+import Talks from '../boring/Talks.astro';
+import Education from '../boring/Education.astro';
+import About from '../boring/About.astro';
+import Contact from '../boring/Contact.astro';
+import Footer from '../boring/Footer.astro';
+
+const profile = (await getEntry('profile', 'main'))!.data;
+const title = `${profile.name} · iOS Tech Lead, CarPlay & On-device AI`;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  jobTitle: 'iOS Tech Lead',
+  url: Astro.site?.href,
+  email: `mailto:${profile.links.email}`,
+  address: { '@type': 'PostalAddress', addressLocality: 'Munich', addressCountry: 'DE' },
+  knowsLanguage: profile.languages,
+  knowsAbout: ['iOS', 'Swift', 'SwiftUI', 'CarPlay', 'Core ML', 'On-device AI'],
+  alumniOf: { '@type': 'CollegeOrUniversity', name: 'Technical University of Munich' },
+  sameAs: [profile.links.linkedin, profile.links.github, profile.links.medium],
+};
+---
+<Base title={title} description={profile.description} jsonLd={jsonLd}>
+  <Header />
+  <main id="main">
+    <Facts />
+    <Experience />
+    <Bench />
+    <Writing />
+    <Talks />
+    <Education />
+    <About />
+    <Contact />
+  </main>
+  <Footer />
+</Base>

@@ -1,0 +1,24 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+const posts = (await getCollection('posts')).sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+const profile = (await getEntry('profile', 'main'))!.data;
+const series = posts[0]?.data.series;
+const fmt = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+---
+<section id="writing" aria-labelledby="writing-title">
+  <div class="wrap">
+    <h2 class="section-title" id="writing-title">Writing</h2>
+    <p class="section-lead">
+      “{series}”: a fluff-free guide to building a real CarPlay app in SwiftUI, without CPTemplate.
+    </p>
+    <ul class="list">
+      {posts.map(({ data: p }) => (
+        <li>
+          <a href={p.url} rel="noopener">{p.title} ↗</a>
+          <span class="meta"><time datetime={p.date.toISOString().slice(0, 10)}>{fmt.format(p.date)}</time> · {p.minutes} min read</span>
+        </li>
+      ))}
+    </ul>
+    <p style="margin-top:12px"><a href={profile.links.medium} rel="noopener">All articles on Medium ↗</a></p>
+  </div>
+</section>
