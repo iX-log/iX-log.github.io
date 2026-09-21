@@ -9,17 +9,24 @@
 
             <div class="space-y-4" style="color:var(--muted);">
                 <p>
-                Hey, I’m Ixhen, an iOS engineer based in Munich, Germany.
-                
-                <br /><br />Yeah, I know my name sounds like a new iPhone model. Fitting, because since discovering my
+                I’m Ixhen, an iOS Tech Lead based in Munich, Germany. Since 2020, almost all of my work has lived in
+                the automotive and connected-car space (Porsche, VW, Audi, Lamborghini): CarPlay, app architecture,
+                and getting proofs of concept into production.
+                </p>
+
+                <p>
+                Lately I’m going deep on on-device AI: measuring what Core ML models actually cost on an iPhone in
+                latency, memory, thermals and accuracy, in the open-source <a href="#on-device-bench" style="color:var(--fg);">on-device-bench</a>.
+                </p>
+
+                <p>
+                Yeah, I know my name sounds like a new iPhone model. Fitting, because since discovering my
                 love for Swift in 2020, I haven’t really spent a day away from it.
                 That’s a glitch in the matrix, if ever there was one.
+                </p>
 
-                <br /><br />On my professional journey, almost all of my projects have lived in the automotive and
-                connected-car space (Porsche, VW, Audi, Lamborghini).
-                And for a guy who knows nothing about cars, that qualifies as glitch number two.
-
-                <br /><br />It might sound cliché, but I really love software engineering. It still feels unreal somehow
+                <p>
+                It might sound cliché, but I really love software engineering. It still feels unreal somehow
                 getting paid to do this.
                 <br />That thrill still remains novel every time. The problem starts messy, and then I get to eliminate
                 the white noise until the solution looks obvious (chef's kiss 🤌).
@@ -39,21 +46,42 @@
                 <article class="card p-5">
                     <div class="font-semibold" style="color:var(--fg);">Lamborghini Unica CarPlay</div>
                     <div class="text-sm" style="color:var(--muted);">iOS Tech Lead · Sep 2024 – Present</div>
+                    <ul class="impact-list">
+                        <li>Defined the architecture, navigation and app structure of a CarPlay layer built in pure SwiftUI, with no CPTemplate.</li>
+                        <li>One codebase adapts across vehicle lines and head-unit layouts, horizontal and vertical.</li>
+                        <li>Built CarPlay features end to end as the primary full-time iOS engineer; in production on the Urus since Oct 2025.</li>
+                    </ul>
+                    {% include todo.html text="add a number (e.g. vehicles, markets, crash-free rate)" %}
                 </article>
 
                 <article class="card p-5">
                     <div class="font-semibold" style="color:var(--fg);">myAudi</div>
-                    <div class="text-sm" style="color:var(--muted);">iOS Developer · Aug 2022 – Sep 2024</div>
+                    <div class="text-sm" style="color:var(--muted);">iOS Developer, App Architecture team · Aug 2022 – Sep 2024</div>
+                    <ul class="impact-list">
+                        <li>Turned proofs of concept into production features, including Widgets and CarPlay, in an app with 1.5M users.</li>
+                        <li>Handled iOS/Swift upgrades and build hygiene; introduced CommandTool and BuildTool plugins.</li>
+                        <li>Shipped Car2Phone Bluetooth/Wi-Fi features and Remote Park Assist; helped keep the app rating above 4★.</li>
+                    </ul>
+                    {% include todo.html text="add a number (e.g. build time saved, upgrade scope)" %}
                 </article>
 
                 <article class="card p-5">
                     <div class="font-semibold" style="color:var(--fg);">VW Remote Park Assist</div>
                     <div class="text-sm" style="color:var(--muted);">iOS Developer · Jul 2021 – Aug 2022</div>
+                    <ul class="impact-list">
+                        <li>Built tester and demo apps for Remote Park Assist, plus the VW Park Assist app.</li>
+                        <li>Delivered the Automated Valet Parking demo shown at IAA Mobility.</li>
+                        <li>Prototyped Headlight Pong with the Audi Light Department. Yes, it’s exactly what it sounds like.</li>
+                    </ul>
                 </article>
 
                 <article class="card p-5">
                     <div class="font-semibold" style="color:var(--fg);">Porsche Connect / myPorsche</div>
                     <div class="text-sm" style="color:var(--muted);">iOS Developer · Nov 2020 – Jul 2021</div>
+                    <ul class="impact-list">
+                        <li>Migrated features such as fleet management and service partner maps to SwiftUI.</li>
+                    </ul>
+                    {% include todo.html text="one more impact point or a number" %}
                 </article>
             </div>
         </div>
@@ -75,7 +103,17 @@
                 <article class="card p-5">
                     <div class="font-semibold" style="color:var(--fg);">Technical University of Munich (TUM)</div>
                     <div class="text-sm" style="color:var(--muted);">M.Sc. Computer Science</div>
-                </article>
+                    <div class="mt-4 pt-4" style="border-top:1px solid var(--border);">
+                        <div class="text-sm" style="color:var(--muted);">Thesis</div>
+                        <div class="font-semibold" style="color:var(--fg);">“Stress Overthrow”</div>
+                        <p class="text-sm mt-1" style="color:var(--muted);">
+                            An iOS + watchOS app that recognizes stress from heart-rate signals. My first on-device ML project.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="chip">iOS</span><span class="chip">watchOS</span><span class="chip">On-device ML</span>
+                        </div>
+                        {% include todo.html text="add a result (e.g. accuracy, participants) and a thesis link" %}
+                    </div>
                 </article>
             </div>
         </div>

@@ -8,9 +8,9 @@
     </p>
 
     <div class="flex flex-wrap justify-center gap-3">
-      {% assign tools = "Swift,SwiftUI,CarPlay,Vision,AI/ML,MERN" | split: "," %}
+      {% assign tools = "Swift,SwiftUI,CarPlay,Core ML,Swift Concurrency,Instruments,System Design" | split: "," %}
       {% for t in tools %}
-        <div class="card py-5 px-3 text-sm font-semibold w-40" style="color:var(--muted-2);">{{ t }}</div>
+        <div class="card py-5 px-6 text-sm font-semibold min-w-32" style="color:var(--muted-2);">{{ t }}</div>
       {% endfor %}
     </div>
   </div>

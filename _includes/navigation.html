@@ -8,6 +8,9 @@
       <nav class="pill-nav hidden md:flex items-center gap-12 px-11 py-4">
         <a href="#top" class="text-sm font-semibold" style="color:var(--muted-2); text-decoration:none; font-family:Poppins,Inter,sans-serif;">Home</a>
         <a href="#portfolio" class="text-sm font-semibold" style="color:var(--muted-2); text-decoration:none; font-family:Poppins,Inter,sans-serif;">Portfolio</a>
+        {% if site.data.speaking.size > 0 or jekyll.environment != "production" %}
+        <a href="#speaking" class="text-sm font-semibold" style="color:var(--muted-2); text-decoration:none; font-family:Poppins,Inter,sans-serif;">Speaking</a>
+        {% endif %}
         <a href="#contact" class="text-sm font-semibold" style="color:var(--muted-2); text-decoration:none; font-family:Poppins,Inter,sans-serif;">Contact</a>
       </nav>
 

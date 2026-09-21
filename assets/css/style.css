@@ -160,6 +160,32 @@ html.dark .btn-outline {
 /* small helper for “gray first word” headline */
 .gray-lead { color: var(--muted); }
 
+/* impact bullets inside work-history cards */
+.impact-list {
+  list-style: disc;
+  margin: 12px 0 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* Visible placeholder marker. Grep for "TODO" and delete these before deploying. */
+.todo {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 2px 8px;
+  border: 1px dashed #d97706;
+  border-radius: 6px;
+  background: rgba(245, 158, 11, 0.10);
+  color: #b45309;
+  font-size: 12px;
+  font-weight: 600;
+}
+html.dark .todo { color: #fbbf24; border-color: #fbbf24; }
+
 /* Reduce the gap between the header and the first main section */
 main > section:first-child {
   padding-top: clamp(28px, 4vw, 48px);
