@@ -1,9 +1,10 @@
-# Builds the Astro site and publishes it to GitHub Pages (ix-dev.com) on every push to main.
+# Builds the Astro site and publishes it to GitHub Pages (ix-dev.com).
+# feature/head-unit serves the site until it is merged; drop it from the list after the merge.
 name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, feature/head-unit]
   workflow_dispatch:
 
 permissions:
