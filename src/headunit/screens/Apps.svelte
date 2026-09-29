@@ -21,7 +21,7 @@
       {:else}
         <a class="hu-tile tile" href={app.href} target={app.href?.startsWith('mailto:') ? undefined : '_blank'} rel="noopener noreferrer">
           <span class="icon"><Icon name={app.icon} width={26} height={26} /></span>
-          <span class="words"><span class="tile-label">{app.label}<span class="out" aria-hidden="true"> ↗</span></span><span class="tile-hint">{app.hint}</span></span>
+          <span class="words"><span class="tile-label">{app.label}</span><span class="tile-hint">{app.hint}</span></span>
         </a>
       {/if}
     {/each}
@@ -45,6 +45,5 @@
   .accent { color: var(--accent); }
   .words { display: flex; flex-direction: column; gap: 2px; }
   .tile-label { font-size: 18px; font-weight: 600; font-stretch: 106%; }
-  .out { color: var(--muted); font-size: 14px; }
   .tile-hint { font-size: 12.5px; color: var(--muted); line-height: 1.35; }
 </style>
