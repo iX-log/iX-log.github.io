@@ -1,0 +1,21 @@
+---
+import type { SiteData } from '../lib/types';
+interface Props { data: SiteData }
+const { data } = Astro.props;
+const { ui } = data;
+// "iOS Tech Lead · CarPlay · On-device AI" doubles as the chip row, the way the old site had it.
+const chips = data.role.split('·').map((c) => c.trim()).filter(Boolean);
+const [first, ...surname] = data.name.split(' ');
+---
+<section class="hero" id="top">
+  <div class="hero-photo">
+    <img src="/img/avatar-lg.webp" width="290" height="290" alt="Ixhen at a CarPlay test head unit" fetchpriority="high" decoding="async" />
+    <span class="ring" aria-hidden="true"></span>
+  </div>
+  <div class="chips">{chips.map((c) => <span class="chip">{c}</span>)}</div>
+  <h1><span class="lead">{first}</span> {surname.join(' ')}</h1>
+  <p class="role">{data.location}</p>
+  <p class="tagline">“{data.tagline}”</p>
+
+  <a class="skip-boring" href="#cv">{ui.header.skip}</a>
+</section>

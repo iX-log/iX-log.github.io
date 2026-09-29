@@ -1,0 +1,12 @@
+---
+// Phones only, and only when the visitor scanned the head unit's QR code (?from=headunit).
+// This is the seed of the companion view's top line (later phase); static HTML stays hidden without JS.
+interface Props { text: string }
+const { text } = Astro.props;
+---
+<p class="from-hu" id="from-hu" hidden>{text}</p>
+<script>
+  if (new URLSearchParams(location.search).get('from') === 'headunit') {
+    document.getElementById('from-hu')?.removeAttribute('hidden');
+  }
+</script>

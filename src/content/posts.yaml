@@ -1,25 +1,30 @@
 # Barebones CarPlay App series on Medium. Canonical copies will move to /blog later.
 - id: part-xero
-  series: Barebones CarPlay App
-  title: Part Xero — Shortest Path
+  part: Part Xero
+  title: Shortest Path
+  blurb: Six files, six Infinity Stones.
   date: 2025-12-09
   minutes: 6
   url: https://medium.com/@ixhen.dev/barebones-carplay-app-part-xero-shortest-path-8213f10dceff
 - id: part-un
-  series: Barebones CarPlay App
-  title: Part Un — A Path to Remember
+  part: Part Un
+  title: A Path to Remember
+  blurb: Simulator × device, all four ways.
   date: 2025-12-10
   minutes: 9
   url: https://medium.com/@ixhen.dev/barebones-carplay-app-part-un-a-path-to-remember-da9d640e5314
 - id: part-deux-dream
-  series: Barebones CarPlay App
-  title: Part Deux — A Path Upon a Dream
+  part: Part Deux
+  title: A Path Upon a Dream
+  blurb: Architecture, as told by three fairies.
   date: 2025-12-14
   minutes: 6
   url: https://medium.com/@ixhen.dev/barebones-carplay-app-part-deux-a-path-upon-a-dream-467db81a0be3
 - id: part-deux-happily
-  series: Barebones CarPlay App
-  title: Part Deux — Happily Ever CarPlay
+  part: Part Deux
+  kicker: Part Deux, Part Deux
+  title: Happily Ever CarPlay
+  blurb: Actors, streams, one source of truth.
   date: 2025-12-16
   minutes: 8
   url: https://medium.com/@ixhen.dev/barebones-carplay-app-part-deux-happily-ever-carplay-29987132d9fd

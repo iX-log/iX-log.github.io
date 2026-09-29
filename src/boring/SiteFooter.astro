@@ -1,0 +1,9 @@
+---
+import type { SiteData } from '../lib/types';
+interface Props { data: SiteData }
+const { data } = Astro.props;
+---
+<footer class="site-footer">
+  <span>© {data.year} {data.name}</span>
+  <span>{data.host}</span>
+</footer>

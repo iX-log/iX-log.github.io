@@ -1,8 +1,20 @@
-- id: tum
+# Both degrees, listed the way the old site did: same school, two entries, newest first.
+- id: tum-msc
+  order: 1
   school: Technical University of Munich (TUM)
-  degree: B.Sc. + M.Sc. Computer Science
-  start: '2015'
+  short: TU Munich
+  degree: M.Sc. Computer Science
+  start: '2019'
   end: '2021'
   thesis:
     title: Stress Overthrow
     summary: An iOS + watchOS app that recognizes stress from heart rate.
+    line: recognizing stress from heart rate on iPhone + Apple Watch
+
+- id: tum-bsc
+  order: 2
+  school: Technical University of Munich (TUM)
+  short: TU Munich
+  degree: B.Sc. Computer Science
+  start: '2015'
+  end: '2019'

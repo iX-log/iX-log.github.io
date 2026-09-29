@@ -1,10 +1,12 @@
 # PAST talks only. Do not list a talk here until it has happened (or been accepted and announced).
 - id: spacegem-pitch
   order: 1
-  event: TUM iPraktikum
-  year: WS24/25
-  title: SpaceGem pitch
+  event: iPraktikum · TU Munich
+  year: WS 24/25
+  title: SpaceGem project pitch
   video: https://aet.cit.tum.de/projects/courses/ipraktikum/24w/quartett-mobile/?video=kickoff
+  image: /img/spacegem.webp
+  youtube: rop_j1ku100
 
 - id: past-carplay-talks
   order: 2

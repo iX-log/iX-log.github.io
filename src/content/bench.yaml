@@ -2,17 +2,69 @@ main:
   name: on-device-bench
   summary: >-
     An open harness that measures Core ML latency, memory, thermals and quantization on iPhone.
+  pitch: What actually runs on a phone. Whisper on an A16, 25,000 inferences.
+  pitchWithRepo: What actually runs on a phone. Whisper on an A16, 25,000 inferences, every sample published.
   status: In progress
-  # repo: https://github.com/...   <- add the public repo URL here and delete the todo below
+  variants: fp16 · int8 · int4
+  context: whisper-base encoder · iPhone 14 Pro Max · A16
+  repo: https://github.com/iX-log/on-device-bench
   readouts:
-    - value: 42 ms
+    - value: '42'
+      unit: ' ms'
       label: warm inference
-    - value: 6–9 MB
+      display: "warm inference. Day one said 2 s. That was compilation — I published it anyway, for six days."
+    - value: '6–9'
+      unit: ' MB'
       label: RAM for a 39.4 MB model
-    - value: ~100 s
+      display: of RAM for a 39.4 MB model.
+    - value: '~100'
+      unit: ' s'
       label: at full speed
-    - value: 2.6×
+      display: at full speed. Then a different machine.
+      accent: true
+    - value: '2.6'
+      unit: ×
       label: word errors at int4, for 3% speed
-  todos:
-    - "Repo URL: add repo to bench.yaml"
-    - "Measurement context: name the model, device and iOS version these numbers come from"
+      display: the word errors at int4, for 3% speed.
+  chart:
+    label: Latency · 12,848 samples · 10 min
+    unit: ms
+    stepAt: 102
+    stepLabel: 102 s
+    duration: 600
+    low: 41.7
+    high: 49.4
+    alt: Latency holds at about 42 ms for 102 seconds, then steps up to about 49 ms and stays there.
+    # [seconds, ms]: the mockup's curve. Replace with a downsample of the real run when the data is public.
+    points:
+      - [0, 41.7]
+      - [12, 41.8]
+      - [24, 41.6]
+      - [36, 41.8]
+      - [48, 41.7]
+      - [60, 41.9]
+      - [72, 41.7]
+      - [84, 41.8]
+      - [96, 41.8]
+      - [102, 41.7]
+      - [106, 45.7]
+      - [110, 49.0]
+      - [122, 49.3]
+      - [140, 49.0]
+      - [160, 49.5]
+      - [180, 49.2]
+      - [200, 49.4]
+      - [230, 49.3]
+      - [260, 49.5]
+      - [290, 49.3]
+      - [320, 49.5]
+      - [350, 49.2]
+      - [380, 49.5]
+      - [410, 49.4]
+      - [440, 49.6]
+      - [470, 49.3]
+      - [500, 49.5]
+      - [530, 49.7]
+      - [560, 49.4]
+      - [600, 49.5]
+  todos: []

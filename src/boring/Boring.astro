@@ -1,0 +1,82 @@
+---
+import type { SiteData } from '../lib/types';
+import { twoTone } from '../lib/format';
+import Todo from '../components/Todo.astro';
+
+interface Props { data: SiteData }
+const { data } = Astro.props;
+const { ui } = data;
+const b = ui.boring;
+const g = b.groups;
+// Oldest first, the order the old site listed them in.
+const edu = [...data.education].sort((a, b) => a.start.localeCompare(b.start));
+// First word solid, the rest stepped back — the old site's heading treatment.
+const [titleHead, titleRest] = twoTone(b.title);
+---
+<!-- Closed by default. <details> does the work, so it collapses and opens with no JavaScript;
+     the script at the bottom only handles being jumped to from the skip link. -->
+<details id="cv" class="boring">
+  <summary class="boring-summary">
+    <h2 id="cv-title" class="two-tone"><strong>{titleHead}</strong>{titleRest}</h2>
+    <span class="boring-hint">{b.hint}</span>
+    <span class="chev" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+    </span>
+  </summary>
+
+  <div class="boring-body">
+    {data.cvUrl ? <a class="cv-button" href={data.cvUrl}>{b.cv}</a> : <Todo items={data.profileTodos} />}
+
+    <!-- The old site as it stands, word for word: TL;DR, Work History, Alma Mater. -->
+    <div class="groups">
+    <section class="bsection" aria-labelledby="boring-tldr">
+      <h3 class="group-title two-tone" id="boring-tldr"><strong>{twoTone(g.tldr)[0]}</strong>{twoTone(g.tldr)[1]}</h3>
+      <div class="bprose">
+        {data.about.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </section>
+
+    <section class="bsection" aria-labelledby="boring-experience">
+      <h3 class="group-title two-tone" id="boring-experience"><strong>{twoTone(g.experience)[0]}</strong>{twoTone(g.experience)[1]}</h3>
+      <div class="bcards">
+        {data.roles.map((r) => (
+          <article class="bcard">
+            <div class="bcard-title">{r.project}</div>
+            <div class="bcard-meta">{r.title} · {r.start} – {r.end}</div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="bsection" aria-labelledby="boring-education">
+      <h3 class="group-title two-tone" id="boring-education"><strong>{twoTone(g.education)[0]}</strong>{twoTone(g.education)[1]}</h3>
+      <div class="bcards">
+        {edu.map((e) => (
+          <article class="bcard">
+            <div class="bcard-title">{e.school}</div>
+            <div class="bcard-meta">{e.degree}</div>
+          </article>
+        ))}
+      </div>
+    </section>
+    </div>
+  </div>
+</details>
+
+<script>
+  // Opening it from the skip link, and from a #cv link someone pasted to a colleague.
+  const panel = document.getElementById('cv') as HTMLDetailsElement | null;
+  if (panel) {
+    const open = () => {
+      panel.open = true;
+      requestAnimationFrame(() => panel.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    };
+    // Always starts closed, even if #cv is still in the URL from a previous click.
+    document.querySelectorAll<HTMLAnchorElement>('a[href="#cv"]').forEach((a) =>
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        open();
+      }),
+    );
+  }
+</script>

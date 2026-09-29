@@ -1,7 +1,8 @@
-# Only facts from the brief. Missing facts go in `todos` and render as visible TODO badges.
+# Only facts from the brief and the design mockup. Missing facts go in `todos` and render as visible TODO badges.
 main:
   name: Ixhen Hasani
   role: iOS Tech Lead · CarPlay · On-device AI
+  city: Munich
   location: Munich, Germany
   description: >-
     iOS Tech Lead in Munich. Built the Lamborghini Unica CarPlay layer in pure SwiftUI,
@@ -12,25 +13,38 @@ main:
       text: >-
         I architected and built the CarPlay layer in pure SwiftUI, with no CPTemplate.
         It has been in production on the Urus since Oct 2025.
-      href: '#experience'
-      hrefLabel: See the role
     - label: Now building
       title: on-device-bench
       text: >-
         An open harness that measures Core ML latency, memory, thermals and
         quantization on iPhone.
-      href: '#bench'
-      hrefLabel: See the numbers
-  about: >-
-    Yes, the name sounds like a new iPhone model. I've been writing Swift every day since 2020,
-    so I've stopped fighting it. Almost everything I've shipped runs in a car: Porsche, VW, Audi,
-    Lamborghini. Now I'm working out which AI models can actually run next to it.
+  # The tagline from the old site, kept word for word.
+  tagline: If you're good enough, you're old enough
+  about:
+    - Hey, I’m Ixhen, an iOS engineer based in Munich, Germany.
+    - >-
+      Yeah, I know my name sounds like a new iPhone model. Fitting, because since discovering my love
+      for Swift in 2020, I haven’t really spent a day away from it. That’s a glitch in the Matrix, if
+      ever there was one.
+    - >-
+      Most of my professional life has somehow ended up in the automotive and connected-car space
+      (Porsche, VW, Audi, Lamborghini). And for a guy who knows nothing about cars, that qualifies as
+      glitch number two.
+    - >-
+      It might sound cliché, but I really love software engineering. Somehow, getting paid to do this
+      still feels a little unreal.
+    - >-
+      Alright, enough “woe-is-me”. I wholeheartedly believe a big part of life is finding your people,
+      so if any of this resonates with you, feel free to reach out 👋🏼
+  # Design & development toolbox, from the old site.
+  toolbox:
+    lead: I might not be the sharpest tool in the shed, but these beauties definitely are.
+    items: [Swift, SwiftUI, CarPlay, Vision, AI/ML, MERN]
   languages: [English, German, Italian, Spanish]
   links:
     email: ixhen.dev@gmail.com
     linkedin: https://www.linkedin.com/in/ixhen-hasani/
     github: https://github.com/iX-log
     medium: https://medium.com/@ixhen.dev
-  # cvUrl: https://...   <- add the CV PDF URL here and delete the todo below
-  todos:
-    - "CV PDF URL: add cvUrl to profile.yaml"
+  # cvUrl: https://...   <- add the CV PDF URL here and the tile becomes a real download
+  todos: []

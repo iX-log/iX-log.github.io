@@ -1,17 +1,63 @@
-/* Tokens from the brief. Head unit shells reuse these. */
+/* Tokens from the brief. The head unit reads the same variables. */
 :root {
-  --page: #0b0c0e;
-  --display: #111317;
-  --tile: #1a1d22;
-  --divider: #262a30;
-  --bezel-border: #2a2c31;
-  --text: #ecedef;
-  --muted: #a0a3ab;
+  color-scheme: dark;
+
+  --page: #0d0c0e;
+  --display: #141317;
+  --dock: #100f12;
+  --tile: #1c1a20;
+  --tile-hover: #26232b;
+  --surface-2: #17161b;
+  --divider: #2b2830;
+  --rule: #262329;
+  --bezel: #000000;
+  --bezel-border: #302d34;
+  --key-border: #35313a;
+  --pill-border: #433e49;
+  --text: #efedea;
+  --text-strong: #ffffff;
+  --muted: #a6a1a8;
+  --soft: #cdc8cc;
   --accent: #8ec5ff;
-  --pink: #f2a7c6; /* dress toggle only */
+  --ok: #9be3b5;
+  --danger: #ff8a80;
+  --amber: #f0b46b; /* second accent: live things — now building, the cliff */
+  --pink: #f2a7c6; /* the phone companion's dress toggle only */
+  --grid-line: rgba(255, 255, 255, 0.028);
+  --glow: rgba(142, 197, 255, 0.06);
 
   --font-sans: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+/* Day mode: what a head unit switches to in daylight. Set by the toggle in the dock,
+   remembered in localStorage and applied before paint (see Base.astro). */
+:root[data-theme='day'] {
+  color-scheme: light;
+
+  --page: #eeebe5;
+  --display: #faf8f4;
+  --dock: #e3ded6;
+  --tile: #ffffff;
+  --tile-hover: #f2efe9;
+  --surface-2: #e7e2da;
+  --divider: #ded8ce;
+  --rule: #d6cfc4;
+  --bezel: #bdb6ab;
+  --bezel-border: #aaa295;
+  --key-border: #c8c1b5;
+  --pill-border: #b6ada0;
+  --text: #191712;
+  --text-strong: #000000;
+  --muted: #5f5950;
+  --soft: #2e2a24;
+  --accent: #1b5fc4;
+  --ok: #1f7a4d;
+  --danger: #c62828;
+  --amber: #9a5d12;
+  --pink: #b8447d;
+  --grid-line: rgba(20, 23, 28, 0.05);
+  --glow: rgba(27, 95, 196, 0.07);
 }
 
 /* Self-hosted, Latin subset only. */
@@ -32,36 +78,38 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { color-scheme: dark; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
   margin: 0;
-  background: var(--page);
+  background-color: var(--page);
+  background-image:
+    radial-gradient(1100px 560px at 50% -8%, var(--glow), transparent 70%),
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: auto, 64px 64px, 64px 64px;
+  background-attachment: fixed;
   color: var(--text);
   font-family: var(--font-sans);
   font-size: 1.0625rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-h1, h2, h3 { font-stretch: 115%; line-height: 1.1; margin: 0; }
-p { margin: 0; }
-ul { margin: 0; padding: 0; list-style: none; }
-a { color: var(--accent); text-underline-offset: 3px; }
-a:hover { text-decoration-thickness: 2px; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3, p { margin: 0; }
+a { color: var(--text); text-underline-offset: 3px; }
+a:hover { color: var(--text-strong); }
+button:focus-visible, a:focus-visible, [tabindex='-1']:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+[hidden] { display: none !important; }
 
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
 .skip-link {
   position: absolute; left: 16px; top: -100px; z-index: 10;
-  background: var(--accent); color: #0b0c0e; padding: 12px 16px; border-radius: 8px; font-weight: 600;
+  background: var(--accent); color: var(--page); padding: 12px 16px; border-radius: 8px; font-weight: 600;
 }
 .skip-link:focus { top: 16px; }
-
-.wrap { width: 100%; max-width: 920px; margin: 0 auto; padding: 0 24px; }
-.mono { font-family: var(--font-mono); }
-.label {
-  font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--muted);
-}
 
 /* Visible placeholder marker. `npm run todos` lists them; `-- --strict` fails on any. */
 .todo {
@@ -70,64 +118,157 @@ a:hover { text-decoration-thickness: 2px; }
   color: #fbbf24; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; line-height: 1.5;
 }
 
-/* ---------- Header ---------- */
-.site-header { padding: 64px 0 40px; }
-.site-header h1 { font-weight: 750; font-size: clamp(2.5rem, 8vw, 4.25rem); letter-spacing: -0.02em; }
-.site-header .role {
-  margin-top: 14px; font-stretch: 112%; font-weight: 600;
-  font-size: clamp(1.15rem, 3.4vw, 1.6rem); line-height: 1.3; color: var(--text);
+/* ---------- Page frame (design: 1440 wide, 60px gutters, 28px rhythm) ---------- */
+.page {
+  --gutter: clamp(20px, 4.2vw, 60px);
+  /* No min-height: the footer follows the content, so a collapsed boring version
+     doesn't leave a hole between it and the footer. */
+  width: 100%; max-width: 1440px; margin: 0 auto;
+  padding: 40px var(--gutter) 64px;
+  display: flex; flex-direction: column; gap: 28px;
 }
-.site-header .role span { white-space: nowrap; }
-.site-header .role i { font-style: normal; color: var(--accent); }
-.nav-links { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 24px; }
-.nav-links a {
-  display: inline-flex; align-items: center; min-height: 44px; font-weight: 500;
-  color: var(--text); text-decoration: none; border-bottom: 1px solid var(--divider);
+.page > *, .page > main > * { width: 100%; max-width: 1320px; align-self: center; }
+.page > main { display: flex; flex-direction: column; gap: 28px; max-width: none; }
+
+/* Reserve the shell's space before the island mounts (reduces layout shift). Desktop gets an
+   exact reservation from the bezel's fixed aspect ratio; the phone companion's height varies
+   with content, so this is a rough estimate for its five rows + two cards. */
+.hu-mount {
+  --w: min(1322px, 100vw - 2 * var(--gutter));
+  min-height: calc(var(--w) * 0.3949 + 58px);
 }
-.nav-links a:hover { color: var(--accent); border-color: var(--accent); }
-
-/* ---------- Key facts ---------- */
-.facts { display: grid; gap: 16px; grid-template-columns: 1fr; padding-bottom: 24px; }
-@media (min-width: 720px) { .facts { grid-template-columns: 1fr 1fr; } }
-.fact { background: var(--tile); border: 1px solid var(--divider); border-radius: 16px; padding: 24px; }
-.fact h2 { font-size: 1.5rem; margin: 8px 0 10px; font-weight: 700; }
-.fact p { color: var(--muted); }
-.fact a { display: inline-flex; align-items: center; min-height: 44px; margin-top: 4px; }
-
-/* ---------- Sections ---------- */
-main > section { padding: 56px 0 0; }
-.section-title { font-size: clamp(1.6rem, 4.5vw, 2.1rem); font-weight: 700; margin-bottom: 24px; }
-.section-lead { color: var(--muted); margin: -8px 0 20px; }
-
-.timeline { display: grid; gap: 28px; }
-.entry { display: grid; gap: 4px 32px; grid-template-columns: 1fr; padding-top: 24px; border-top: 1px solid var(--divider); }
-@media (min-width: 720px) { .entry { grid-template-columns: 150px 1fr; } }
-.entry .when { font-family: var(--font-mono); font-size: 0.875rem; color: var(--muted); padding-top: 4px; }
-.entry h3 { font-size: 1.25rem; font-weight: 700; }
-.entry .sub { color: var(--muted); margin-top: 2px; }
-.points { margin-top: 12px; display: grid; gap: 8px; }
-.points li { position: relative; padding-left: 20px; }
-.points li::before { content: ''; position: absolute; left: 0; top: 0.72em; width: 8px; height: 2px; background: var(--accent); }
-
-.readouts { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; margin: 24px 0 8px; }
-@media (min-width: 720px) { .readouts { grid-template-columns: repeat(4, 1fr); } }
-.readout { background: var(--tile); border: 1px solid var(--divider); border-radius: 14px; padding: 18px 16px; }
-.readout dt { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 500; color: var(--accent); line-height: 1.15; }
-.readout dd { margin: 8px 0 0; color: var(--muted); font-size: 0.9375rem; line-height: 1.4; }
-
-.list { display: grid; }
-.list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; justify-content: space-between; padding: 14px 0; border-top: 1px solid var(--divider); }
-.list li:last-child { border-bottom: 1px solid var(--divider); }
-.list a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 500; }
-.list .meta { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted); }
-
-.contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
-.contact-links a {
-  display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 999px;
-  background: var(--tile); border: 1px solid var(--divider); color: var(--text); text-decoration: none; font-weight: 500;
+@media (max-width: 767px) {
+  .hu-mount { min-height: 640px; }
 }
-.contact-links a:hover { border-color: var(--accent); color: var(--accent); }
 
-.site-footer { margin-top: 72px; padding: 28px 0 48px; border-top: 1px solid var(--divider); color: var(--muted); font-size: 0.875rem; }
+/* Shown only on phones opened from the head unit's QR code (see FromHeadUnit.astro). */
+.from-hu {
+  display: none; font-family: var(--font-mono); font-size: 12px; color: var(--muted);
+  padding: 10px 16px; border-radius: 999px; background: var(--surface-2); align-self: flex-start;
+}
+@media (max-width: 767px) { .from-hu { display: block; } }
 
-main > section:first-child { padding-top: 0; }
+/* Section titles: solid first word, grey tail (TL;DR, Work History). */
+.group-title { font-size: clamp(26px, 2.6vw, 34px); font-weight: 700; font-stretch: 112%; line-height: 1.15; margin-bottom: 18px; }
+
+/* ---------- The boring version ---------- */
+.boring { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--rule); }
+/* The whole header is the hit area, so no hunting for a small chevron. */
+.boring-summary {
+  display: flex; align-items: center; gap: 16px; cursor: pointer; list-style: none;
+  padding: 10px 0; min-height: 44px;
+}
+.boring-summary::-webkit-details-marker { display: none; }
+.boring-summary h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 700; font-stretch: 112%; line-height: 1.2; }
+.boring-hint { margin-left: auto; font-size: 14px; color: var(--muted); }
+.chev {
+  flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--pill-border); color: var(--muted); transition: transform 0.22s ease, color 0.16s ease;
+}
+.boring-summary:hover .chev { color: var(--text-strong); }
+.boring[open] .chev { transform: rotate(180deg); }
+.boring[open] .boring-hint { opacity: 0; }
+.boring-body { padding-top: 22px; display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
+@media (prefers-reduced-motion: reduce) { .chev { transition: none; } }
+.tools { display: flex; flex-wrap: wrap; gap: 8px; }
+.tool {
+  padding: 5px 12px; border-radius: 999px; background: var(--tile); border: 1px solid var(--rule);
+  font-size: 13px; color: var(--text);
+}
+.cv-button { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px;
+  font-size: 15px; font-weight: 600; border-radius: 999px; background: var(--text); color: var(--page); text-decoration: none;
+}
+.cv-button:hover { color: var(--page); background: var(--text-strong); }
+
+.groups { align-self: stretch; display: flex; flex-direction: column; gap: 64px; font-size: 16px; line-height: 1.5; }
+.group-label {
+  margin-bottom: 18px; font-family: var(--font-mono); font-size: 12px; font-weight: 400;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+}
+.brows { display: flex; flex-direction: column; gap: 22px; }
+/* Wide enough for 'Sep 2024 – Present' on one line. */
+.brow { display: grid; grid-template-columns: 178px minmax(0, 1fr); gap: 20px; }
+@media (max-width: 600px) { .brow { grid-template-columns: 1fr; gap: 2px; } .bmeta { white-space: normal; } }
+.bmeta { font-family: var(--font-mono); font-size: 13px; color: var(--muted); white-space: nowrap; }
+.soft { color: var(--soft); }
+.bprose { display: flex; flex-direction: column; gap: 14px; color: var(--soft); max-width: 640px; }
+.bintro { color: var(--soft); margin-bottom: 22px; }
+/* Old-site layout: title on the left, content on the right; one column on phones. */
+.bsection { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; align-items: start; }
+@media (max-width: 767px) { .bsection { grid-template-columns: 1fr; gap: 16px; } }
+.bcards { display: flex; flex-direction: column; gap: 16px; }
+.bcard { padding: 20px; border: 1px solid var(--rule); border-radius: 16px; background: var(--tile); }
+.bcard-title { font-weight: 600; color: var(--text-strong); }
+.bcard-meta { font-size: 14px; color: var(--muted); }
+.bintro .mono { display: block; margin-top: 4px; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+
+.site-footer {
+  margin-top: 8px; padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
+  font-family: var(--font-mono); font-size: 12px; color: var(--muted);
+}
+
+
+/* ---------- Top chrome: brand, theme pill ---------- */
+.chrome { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 48px; }
+.brand {
+  font-size: 22px; font-weight: 700; font-stretch: 112%; letter-spacing: -0.01em;
+  text-decoration: none; padding: 10px 4px;
+}
+
+/* ---------- Hero ---------- */
+.hero { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 28px 0 8px; }
+.hero-photo { position: relative; width: clamp(200px, 24vw, 290px); aspect-ratio: 1; }
+.hero-photo img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+/* The old site's thick white ring, scaled with the portrait. */
+.hero-photo .ring {
+  position: absolute; inset: 0; border-radius: 50%; pointer-events: none;
+  border: clamp(6px, 0.8vw, 10px) solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3), 0 4px 54px rgba(0, 0, 0, 0.08);
+}
+.chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.chip {
+  padding: 4px 11px; border-radius: 999px; background: var(--tile); border: 1px solid var(--rule);
+  font-size: 12px; color: var(--muted);
+}
+.hero h1 { font-size: clamp(38px, 6vw, 68px); font-weight: 800; font-stretch: 118%; letter-spacing: -0.02em; line-height: 1.02; }
+/* grey lead-in, solid finish — the old site's name and logo treatment */
+.lead { color: var(--muted); }
+.hero .role { font-size: 17px; color: var(--muted); }
+/* The old site's line, kept as a quote rather than a heading. */
+.hero .tagline { font-size: 15px; font-style: italic; color: var(--muted); opacity: 0.85; }
+/* Three pills that all leave the site, so they all look alike. They sit in the head
+   unit's control row beside the power key; global so the Svelte island can use them too. */
+.social-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.social-links a {
+  display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 0 13px;
+  border: 1px solid var(--rule); border-radius: 999px; background: var(--tile);
+  color: var(--muted); font-size: 13px; text-decoration: none; transition: color 0.16s ease, border-color 0.16s ease;
+}
+.social-links a:hover { color: var(--text-strong); border-color: var(--pill-border); background: var(--tile-hover); }
+.social-links .out { font-size: 12px; opacity: 0.6; }
+.skip-boring {
+  display: inline-flex; align-items: center; min-height: 38px; padding: 0 18px; margin-top: 2px;
+  border: 1px solid var(--pill-border); border-radius: 999px;
+  color: var(--text); font-size: 14px; font-weight: 600; text-decoration: none;
+}
+.skip-boring:hover { background: var(--tile-hover); }
+
+/* Touch devices keep the 44px minimum target whatever the desktop sizing says. */
+@media (pointer: coarse) {
+  .social-links a, .skip-boring { min-height: 44px; }
+}
+
+@media (max-width: 767px) {
+  .hero-photo { width: 104px; height: 104px; }
+  .skip-boring { display: none; }
+  /* Three across on a phone: the arrow is what makes them wrap. */
+  .social-links { gap: 8px; }
+  .social-links a { padding: 0 12px; gap: 6px; }
+  .social-links .out { display: none; }
+}
+
+
+/* Two-tone headings, the way the old site set them: first word solid, the rest stepped back. */
+.two-tone { color: var(--muted); }
+.two-tone strong { color: var(--text); font-weight: 700; }
+
