@@ -60,7 +60,7 @@
   .body { flex-grow: 1; display: flex; gap: 20px; min-height: 0; }
   .readouts { width: 420px; flex-shrink: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
   .readout { border-radius: 16px; background: var(--tile); padding: 16px; display: flex; flex-direction: column; gap: 6px; }
-  .q { font-size: 12px; color: var(--muted); line-height: 1.3; }
+  .q { font-size: 12px; color: var(--muted); line-height: 1.3; padding-bottom: 8px; border-bottom: 1px solid var(--divider); }
   .q b { color: var(--text); font-weight: 600; }
   .value { font-family: var(--font-mono); font-size: 28px; font-weight: 500; margin-top: auto; }
   .value.accent { color: var(--accent); }

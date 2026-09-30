@@ -13,7 +13,7 @@ main:
       question: how fast does it actually run?
       value: '43'
       unit: ' ms'
-      display: warm inference on the A16, 26 ms on the A19 Pro. Day one said 2 s. That was compilation.
+      display: warm inference on the A16, 26 ms on the A19 Pro.
     - label: Memory
       question: how much RAM does it really use?
       value: '3376'
