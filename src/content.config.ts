@@ -119,8 +119,7 @@ const bench = defineCollection({
           unit: z.string(),
           label: z.string(),
           question: z.string(),
-          display: z.string(),
-          accent: z.boolean().default(false),
+          display: z.array(z.string()).min(1),
         }),
       )
       .length(4),

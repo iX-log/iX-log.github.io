@@ -28,9 +28,12 @@
     <div class="readouts">
       {#each bench.readouts as r (r.label)}
         <div class="readout">
-          <span class="q"><b>{r.label}</b> {r.question}</span>
-          <span class="value" class:accent={r.accent}>{r.value}<span class="unit">{r.unit}</span></span>
-          <span class="note">{r.display}</span>
+          <span class="label">{r.label}</span>
+          <span class="question">{r.question}</span>
+          <span class="value">{r.value}<span class="unit">{r.unit}</span></span>
+          <span class="note">
+            {#each r.display as line}<span>{line}</span>{/each}
+          </span>
         </div>
       {/each}
     </div>
@@ -60,12 +63,11 @@
   .body { flex-grow: 1; display: flex; gap: 20px; min-height: 0; }
   .readouts { width: 420px; flex-shrink: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
   .readout { border-radius: 16px; background: var(--tile); padding: 16px; display: flex; flex-direction: column; gap: 6px; }
-  .q { font-size: 12px; color: var(--muted); line-height: 1.3; padding-bottom: 8px; border-bottom: 1px solid var(--divider); }
-  .q b { color: var(--text); font-weight: 600; }
-  .value { font-family: var(--font-mono); font-size: 28px; font-weight: 500; margin-top: auto; }
-  .value.accent { color: var(--accent); }
+  .label { font-size: 12px; font-weight: 600; color: var(--text); }
+  .question { font-size: 12px; color: var(--muted); line-height: 1.3; padding-bottom: 8px; border-bottom: 1px solid var(--divider); }
+  .value { font-family: var(--font-mono); font-size: 28px; font-weight: 500; color: var(--accent); margin-top: 2px; }
   .unit { font-size: 16px; color: var(--muted); }
-  .note { font-size: 12px; color: var(--muted); line-height: 1.35; }
+  .note { font-size: 12px; color: var(--muted); line-height: 1.35; display: flex; flex-direction: column; gap: 3px; }
   .chart { flex-grow: 1; min-width: 0; border-radius: 16px; background: var(--tile); padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; }
   .chart-head { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; }
 </style>

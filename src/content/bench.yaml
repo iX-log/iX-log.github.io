@@ -13,23 +13,28 @@ main:
       question: how fast does it actually run?
       value: '43'
       unit: ' ms'
-      display: warm inference on the A16, 26 ms on the A19 Pro.
+      display:
+        - warm inference on the A16, 26 ms on the A19 Pro.
     - label: Memory
       question: how much RAM does it really use?
       value: '3376'
       unit: ' MiB'
-      display: the ceiling on an 8 GB iPhone and on a 12 GB one. The same threshold, to the byte.
-      accent: true
+      display:
+        - the ceiling on an 8 GB iPhone and on a 12 GB one.
+        - The same threshold, to the byte.
     - label: Endurance
       question: does it get slower the longer you run it?
       value: '18'
       unit: ' %'
-      display: slower after ten minutes on the A16. Across four phones, +7% to +28%, and the worst was not the oldest.
+      display:
+        - slower after ten minutes on the A16.
+        - Across four phones, +7% to +28%, and the worst was not the oldest.
     - label: Accuracy
       question: what do you lose by shrinking the model?
       value: '2.6'
       unit: ×
-      display: the word errors at int4, for 3% speed.
+      display:
+        - the word errors at int4, for 3% speed.
   chart:
     label: Latency · iPhone 14 Pro Max · 12,848 samples · 10 min
     unit: ms
