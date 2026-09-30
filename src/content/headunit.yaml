@@ -52,7 +52,7 @@ main:
   screens:
     writing: { minutes: min }
     talks: { video: 'Video ↗', play: Play, playing: Now playing }
-    bench: { rawData: Raw data ↗ }
+    bench: { repoLink: GitHub repo ↗ }
     about: { speaks: Speaks, thesis: Thesis, toolbox: Toolbox }
     contact: { email: Email, linkedin: LinkedIn, github: GitHub, medium: Medium }
   play:

@@ -8,6 +8,20 @@ main:
   variants: fp16 · int8 · int4
   context: whisper-base encoder · four iPhones · A16 to A19 Pro
   repo: https://github.com/iX-log/mind-the-ceiling
+  questions:
+    lead: 'Before you put an AI model on an iPhone, you want to know:'
+    items:
+      - label: Speed
+        text: how fast does it actually run?
+      - label: Memory
+        text: how much RAM does it really use?
+      - label: Endurance
+        text: does it get slower the longer you run it?
+      - label: Accuracy
+        text: what do you lose by shrinking the model?
+    answer: >-
+      Answered on physical hardware, across quantization levels, using the
+      Whisper-base encoder as the running example.
   readouts:
     - value: '43'
       unit: ' ms'

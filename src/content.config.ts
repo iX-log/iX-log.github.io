@@ -112,6 +112,11 @@ const bench = defineCollection({
     variants: z.string(),
     context: z.string(),
     repo: z.url().optional(),
+    questions: z.object({
+      lead: z.string(),
+      items: z.array(z.object({ label: z.string(), text: z.string() })).length(4),
+      answer: z.string(),
+    }),
     readouts: z
       .array(
         z.object({
@@ -172,7 +177,7 @@ const headunit = defineCollection({
     screens: z.object({
       writing: z.object({ minutes: z.string() }),
       talks: z.object({ video: z.string(), play: z.string(), playing: z.string() }),
-      bench: z.object({ rawData: z.string() }),
+      bench: z.object({ repoLink: z.string() }),
       about: z.object({ speaks: z.string(), thesis: z.string(), toolbox: z.string() }),
       contact: z.object({ email: z.string(), linkedin: z.string(), github: z.string(), medium: z.string() }),
     }),
