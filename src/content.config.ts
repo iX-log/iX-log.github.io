@@ -112,17 +112,13 @@ const bench = defineCollection({
     variants: z.string(),
     context: z.string(),
     repo: z.url().optional(),
-    questions: z.object({
-      lead: z.string(),
-      items: z.array(z.object({ label: z.string(), text: z.string() })).length(4),
-      answer: z.string(),
-    }),
     readouts: z
       .array(
         z.object({
           value: z.string(),
           unit: z.string(),
           label: z.string(),
+          question: z.string(),
           display: z.string(),
           accent: z.boolean().default(false),
         }),

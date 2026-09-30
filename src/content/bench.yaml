@@ -8,37 +8,27 @@ main:
   variants: fp16 · int8 · int4
   context: whisper-base encoder · four iPhones · A16 to A19 Pro
   repo: https://github.com/iX-log/mind-the-ceiling
-  questions:
-    lead: 'Before you put an AI model on an iPhone, you want to know:'
-    items:
-      - label: Speed
-        text: how fast does it actually run?
-      - label: Memory
-        text: how much RAM does it really use?
-      - label: Endurance
-        text: does it get slower the longer you run it?
-      - label: Accuracy
-        text: what do you lose by shrinking the model?
-    answer: >-
-      Answered on physical hardware, across quantization levels, using the
-      Whisper-base encoder as the running example.
   readouts:
-    - value: '43'
+    - label: Speed
+      question: how fast does it actually run?
+      value: '43'
       unit: ' ms'
-      label: warm inference
-      display: "warm inference on the A16. Day one said 2 s. That was compilation, and I published it anyway, for six days."
-    - value: '6–9'
-      unit: ' MB'
-      label: RAM for a 39.4 MB fp16 model
-      display: of RAM for a 39.4 MB fp16 model. Quantize it and that stops holding.
-    - value: '3376'
+      display: warm inference on the A16. Day one said 2 s. That was compilation.
+    - label: Memory
+      question: how much RAM does it really use?
+      value: '3376'
       unit: ' MiB'
-      label: the ceiling on both an 8 GB and a 12 GB iPhone
-      display: the memory ceiling on an 8 GB iPhone and on a 12 GB one. The same byte, twice.
+      display: the ceiling on an 8 GB iPhone and on a 12 GB one. The same byte, twice.
       accent: true
-    - value: '2.6'
+    - label: Endurance
+      question: does it get slower the longer you run it?
+      value: '18'
+      unit: ' %'
+      display: slower after ten minutes on the A16. Across four phones, +7% to +28%, and the worst was not the oldest.
+    - label: Accuracy
+      question: what do you lose by shrinking the model?
+      value: '2.6'
       unit: ×
-      label: word errors at int4, for 3% speed
       display: the word errors at int4, for 3% speed.
   chart:
     label: Latency · iPhone 14 Pro Max · 12,848 samples · 10 min

@@ -6,7 +6,6 @@
   let { data, onback }: { data: SiteData; onback: () => void } = $props();
   const bench = $derived(data.bench);
   const chart = $derived(bench.chart);
-  const questions = $derived(bench.questions);
 
   // Chart geometry from the mockup: 600 x 240 viewBox, x = seconds, y from the axis labels.
   const X = (t: number) => (t * 600) / chart.duration;
@@ -25,20 +24,11 @@
     {/snippet}
   </ScreenHeader>
 
-  <div class="intro">
-    <p class="lead">{questions.lead}</p>
-    <ul class="questions">
-      {#each questions.items as q (q.label)}
-        <li><span class="q-label">{q.label}</span> {q.text}</li>
-      {/each}
-    </ul>
-    <p class="answer">{questions.answer}</p>
-  </div>
-
   <div class="body">
     <div class="readouts">
       {#each bench.readouts as r (r.label)}
         <div class="readout">
+          <span class="q"><b>{r.label}</b> {r.question}</span>
           <span class="value" class:accent={r.accent}>{r.value}<span class="unit">{r.unit}</span></span>
           <span class="note">{r.display}</span>
         </div>
@@ -67,22 +57,15 @@
     display: inline-flex; align-items: center; min-height: var(--tap); box-sizing: border-box;
     font-size: 14px; padding: 10px 16px; border: 1px solid var(--pill-border); border-radius: 999px; text-decoration: none; color: var(--text);
   }
-  .intro { display: flex; flex-direction: column; gap: 8px; }
-  .lead { margin: 0; font-size: 14px; color: var(--text); }
-  .questions {
-    list-style: none; margin: 0; padding: 0;
-    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px;
-  }
-  .questions li { font-size: 13px; color: var(--muted); line-height: 1.35; }
-  .q-label { display: block; color: var(--text); font-weight: 600; }
-  .answer { margin: 0; font-size: 12px; color: var(--muted); }
   .body { flex-grow: 1; display: flex; gap: 20px; min-height: 0; }
   .readouts { width: 420px; flex-shrink: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-  .readout { border-radius: 16px; background: var(--tile); padding: 18px; display: flex; flex-direction: column; justify-content: space-between; }
-  .value { font-family: var(--font-mono); font-size: 32px; font-weight: 500; }
+  .readout { border-radius: 16px; background: var(--tile); padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+  .q { font-size: 12px; color: var(--muted); line-height: 1.3; }
+  .q b { color: var(--text); font-weight: 600; }
+  .value { font-family: var(--font-mono); font-size: 28px; font-weight: 500; margin-top: auto; }
   .value.accent { color: var(--accent); }
   .unit { font-size: 16px; color: var(--muted); }
-  .note { font-size: 13px; color: var(--muted); }
+  .note { font-size: 12px; color: var(--muted); line-height: 1.35; }
   .chart { flex-grow: 1; min-width: 0; border-radius: 16px; background: var(--tile); padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; }
   .chart-head { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; }
 </style>
