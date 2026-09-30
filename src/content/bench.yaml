@@ -1,70 +1,74 @@
 main:
-  name: on-device-bench
+  name: mind-the-ceiling
   summary: >-
     An open harness that measures Core ML latency, memory, thermals and quantization on iPhone.
-  pitch: What actually runs on a phone. Whisper on an A16, 25,000 inferences.
-  pitchWithRepo: What actually runs on a phone. Whisper on an A16, 25,000 inferences, every sample published.
+  pitch: What actually runs on a phone. Whisper's encoder, 74,000 inferences across three iPhones.
+  pitchWithRepo: What actually runs on a phone. Whisper's encoder, 74,000 inferences across three iPhones, with the raw runs in the repo.
   status: In progress
   variants: fp16 · int8 · int4
-  context: whisper-base encoder · iPhone 14 Pro Max · A16
-  repo: https://github.com/iX-log/on-device-bench
+  context: whisper-base encoder · four iPhones · A16 to A19 Pro
+  repo: https://github.com/iX-log/mind-the-ceiling
   readouts:
-    - value: '42'
+    - value: '43'
       unit: ' ms'
       label: warm inference
-      display: "warm inference. Day one said 2 s. That was compilation — I published it anyway, for six days."
+      display: "warm inference on the A16. Day one said 2 s. That was compilation, and I published it anyway, for six days."
     - value: '6–9'
       unit: ' MB'
-      label: RAM for a 39.4 MB model
-      display: of RAM for a 39.4 MB model.
-    - value: '~100'
-      unit: ' s'
-      label: at full speed
-      display: at full speed. Then a different machine.
+      label: RAM for a 39.4 MB fp16 model
+      display: of RAM for a 39.4 MB fp16 model. Quantize it and that stops holding.
+    - value: '3376'
+      unit: ' MiB'
+      label: the ceiling on both an 8 GB and a 12 GB iPhone
+      display: the memory ceiling on an 8 GB iPhone and on a 12 GB one. The same byte, twice.
       accent: true
     - value: '2.6'
       unit: ×
       label: word errors at int4, for 3% speed
       display: the word errors at int4, for 3% speed.
   chart:
-    label: Latency · 12,848 samples · 10 min
+    label: Latency · iPhone 14 Pro Max · 12,848 samples · 10 min
     unit: ms
     stepAt: 102
     stepLabel: 102 s
     duration: 600
     low: 41.7
-    high: 49.4
-    alt: Latency holds at about 42 ms for 102 seconds, then steps up to about 49 ms and stays there.
-    # [seconds, ms]: the mockup's curve. Replace with a downsample of the real run when the data is public.
+    high: 49.5
+    alt: One ten-minute run on an iPhone 14 Pro Max. Latency holds near 41.7 ms for about 100 seconds, steps to roughly 46 ms, then climbs again to about 49.5 ms and stays there. Newer phones in the same test do not step at all.
+    # Median latency per bucket, downsampled from the committed run
+    # results/device-pull/sustained-1788785293.json (12,848 samples, session 3).
+    # Buckets are 20 s, narrowed to 10 s between 80 s and 130 s to show the step.
     points:
-      - [0, 41.7]
-      - [12, 41.8]
-      - [24, 41.6]
-      - [36, 41.8]
-      - [48, 41.7]
-      - [60, 41.9]
-      - [72, 41.7]
-      - [84, 41.8]
-      - [96, 41.8]
-      - [102, 41.7]
-      - [106, 45.7]
-      - [110, 49.0]
-      - [122, 49.3]
-      - [140, 49.0]
-      - [160, 49.5]
-      - [180, 49.2]
-      - [200, 49.4]
-      - [230, 49.3]
-      - [260, 49.5]
-      - [290, 49.3]
-      - [320, 49.5]
-      - [350, 49.2]
-      - [380, 49.5]
-      - [410, 49.4]
-      - [440, 49.6]
-      - [470, 49.3]
+      - [0, 42.5]
+      - [20, 41.7]
+      - [40, 41.7]
+      - [60, 41.7]
+      - [80, 41.8]
+      - [90, 41.7]
+      - [100, 45.7]
+      - [110, 46.2]
+      - [120, 46.2]
+      - [140, 46.1]
+      - [160, 46.1]
+      - [180, 46.2]
+      - [200, 46.1]
+      - [220, 46.2]
+      - [240, 46.1]
+      - [260, 49.3]
+      - [280, 46.2]
+      - [300, 46.1]
+      - [320, 46.2]
+      - [340, 46.2]
+      - [360, 46.2]
+      - [380, 48.7]
+      - [400, 49.5]
+      - [420, 49.4]
+      - [440, 49.4]
+      - [460, 49.4]
+      - [480, 49.5]
       - [500, 49.5]
-      - [530, 49.7]
+      - [520, 49.5]
+      - [540, 49.4]
       - [560, 49.4]
-      - [600, 49.5]
+      - [580, 49.4]
   todos: []

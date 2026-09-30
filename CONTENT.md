@@ -22,7 +22,7 @@ gets lost in translation. Structural stuff — icon names, URLs, dates, chart nu
 
 **Meta description** (what Google and LinkedIn previews show — 155 chars is the useful limit):
 
-> iOS Tech Lead in Munich. Built the Lamborghini Unica CarPlay layer in pure SwiftUI, live on the Urus since Oct 2025. Building on-device-bench for Core ML.
+> iOS Tech Lead in Munich. Built the Lamborghini Unica CarPlay layer in pure SwiftUI, live on the Urus since Oct 2025. Building mind-the-ceiling for Core ML.
 
 **Links**
 
@@ -149,33 +149,33 @@ the bullets are what the boring version prints.
 
 ---
 
-## 7. Bench — on-device-bench
+## 7. Bench — mind-the-ceiling
 
 *bench.yaml*
 
-**Name:** on-device-bench
+**Name:** mind-the-ceiling
 **Summary:** An open harness that measures Core ML latency, memory, thermals and quantization on iPhone.
-**Pitch:** What actually runs on a phone. Whisper on an A16, 25,000 inferences.
-**Pitch once the repo is public:** What actually runs on a phone. Whisper on an A16, 25,000 inferences, every sample published.
+**Pitch:** What actually runs on a phone. Whisper's encoder, 74,000 inferences across three iPhones.
+**Pitch once the repo is public:** What actually runs on a phone. Whisper's encoder, 74,000 inferences across three iPhones, with the raw runs in the repo.
 **Status:** In progress
 **Variants:** fp16 · int8 · int4
-**Context:** whisper-base encoder · iPhone 14 Pro Max · A16
+**Context:** whisper-base encoder · four iPhones · A16 to A19 Pro
 
 **The four readouts:**
 
-1. **42 ms** — warm inference. Day one said 2 s. That was compilation — I published it anyway, for six days.
-2. **6–9 MB** — of RAM for a 39.4 MB model.
-3. **~100 s** — at full speed. Then a different machine.
-4. **2.6×** — the word errors at int4, for 3% speed.
+1. **43 ms**: warm inference on the A16. Day one said 2 s. That was compilation, and I published it anyway, for six days.
+2. **6–9 MB**: of RAM for a 39.4 MB fp16 model. Quantize it and that stops holding.
+3. **3376 MiB**: the memory ceiling on an 8 GB iPhone and on a 12 GB one. The same byte, twice.
+4. **2.6×**: the word errors at int4, for 3% speed.
 
-**Chart caption:** Latency · 12,848 samples · 10 min
-**Chart alt text:** Latency holds at about 42 ms for 102 seconds, then steps up to about 49 ms and stays there.
+**Chart caption:** Latency · iPhone 14 Pro Max · 12,848 samples · 10 min
+**Chart alt text:** One ten-minute run on an iPhone 14 Pro Max. Latency holds near 41.7 ms for about 100 seconds, steps to roughly 46 ms, then climbs again to about 49.5 ms and stays there. Newer phones in the same test do not step at all.
 **Step marker:** 102 s
 
-*[The chart is still drawing the hand-made curve from the mockup, not your real run. Send me the
-data and I'll downsample it — keeping the step at 102 s, no smoothing.]*
+*[The chart now plots median latency per bucket, downsampled from the committed run
+results/device-pull/sustained-1788785293.json. No hand-drawn points remain.]*
 
-**Repo URL:** https://github.com/iX-log/on-device-bench (the "Raw data ↗" link)
+**Repo URL:** https://github.com/iX-log/mind-the-ceiling (the "Raw data ↗" link)
 
 ---
 
@@ -276,7 +276,7 @@ off, and what a recruiter in a hurry scrolls to.
 
 1. **In production** — Lamborghini Unica CarPlay
    > I architected and built the CarPlay layer in pure SwiftUI, with no CPTemplate. It has been in production on the Urus since Oct 2025.
-2. **Now building** — on-device-bench
+2. **Now building** — mind-the-ceiling
    > An open harness that measures Core ML latency, memory, thermals and quantization on iPhone.
 
 ---

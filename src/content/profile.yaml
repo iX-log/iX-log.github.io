@@ -6,7 +6,7 @@ main:
   location: Munich, Germany
   description: >-
     iOS Tech Lead in Munich. Built the Lamborghini Unica CarPlay layer in pure SwiftUI,
-    live on the Urus since Oct 2025. Building on-device-bench for Core ML.
+    live on the Urus since Oct 2025. Building mind-the-ceiling for Core ML.
   facts:
     - label: In production
       title: Lamborghini Unica CarPlay
@@ -14,7 +14,7 @@ main:
         I architected and built the CarPlay layer in pure SwiftUI, with no CPTemplate.
         It has been in production on the Urus since Oct 2025.
     - label: Now building
-      title: on-device-bench
+      title: mind-the-ceiling
       text: >-
         An open harness that measures Core ML latency, memory, thermals and
         quantization on iPhone.
