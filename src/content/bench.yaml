@@ -13,12 +13,12 @@ main:
       question: how fast does it actually run?
       value: '43'
       unit: ' ms'
-      display: warm inference on the A16. Day one said 2 s. That was compilation.
+      display: warm inference on the A16, 26 ms on the A19 Pro. Day one said 2 s. That was compilation.
     - label: Memory
       question: how much RAM does it really use?
       value: '3376'
       unit: ' MiB'
-      display: the ceiling on an 8 GB iPhone and on a 12 GB one. The same byte, twice.
+      display: the ceiling on an 8 GB iPhone and on a 12 GB one. The same threshold, to the byte.
       accent: true
     - label: Endurance
       question: does it get slower the longer you run it?
