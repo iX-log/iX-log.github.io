@@ -1,5 +1,5 @@
 main:
-  name: mind-the-ceiling
+  name: Mind the ceiling
   summary: >-
     An open harness that measures Core ML latency, memory, thermals and quantization on iPhone.
   pitch: What actually runs on a phone. Whisper's encoder, 74,000 inferences across three iPhones.

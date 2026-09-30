@@ -22,7 +22,7 @@ gets lost in translation. Structural stuff — icon names, URLs, dates, chart nu
 
 **Meta description** (what Google and LinkedIn previews show — 155 chars is the useful limit):
 
-> iOS Tech Lead in Munich. Built the Lamborghini Unica CarPlay layer in pure SwiftUI, live on the Urus since Oct 2025. Building mind-the-ceiling for Core ML.
+> iOS Tech Lead in Munich. Built the Lamborghini Unica CarPlay layer in pure SwiftUI, live on the Urus since Oct 2025. Building Mind the ceiling for Core ML.
 
 **Links**
 
@@ -149,11 +149,11 @@ the bullets are what the boring version prints.
 
 ---
 
-## 7. Bench — mind-the-ceiling
+## 7. Bench: Mind the ceiling
 
 *bench.yaml*
 
-**Name:** mind-the-ceiling
+**Name:** Mind the ceiling
 **Summary:** An open harness that measures Core ML latency, memory, thermals and quantization on iPhone.
 **Pitch:** What actually runs on a phone. Whisper's encoder, 74,000 inferences across three iPhones.
 **Pitch once the repo is public:** What actually runs on a phone. Whisper's encoder, 74,000 inferences across three iPhones, with the raw runs in the repo.
@@ -276,7 +276,7 @@ off, and what a recruiter in a hurry scrolls to.
 
 1. **In production** — Lamborghini Unica CarPlay
    > I architected and built the CarPlay layer in pure SwiftUI, with no CPTemplate. It has been in production on the Urus since Oct 2025.
-2. **Now building** — mind-the-ceiling
+2. **Now building**: Mind the ceiling
    > An open harness that measures Core ML latency, memory, thermals and quantization on iPhone.
 
 ---

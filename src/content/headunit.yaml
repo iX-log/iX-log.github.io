@@ -44,7 +44,7 @@ main:
     - { id: experience, label: Experience, hint: Mostly iOS apps for the automotive industry, icon: briefcase, screen: experience }
     - { id: writing, label: Medium, hint: 'CarPlay, minus the fluff', icon: medium, link: medium }
     - { id: github, label: GitHub, hint: 'Code, some of it public', icon: github, link: github }
-    - { id: bench, label: Bench, hint: A small benchmark app to test local models, icon: pulse, screen: bench }
+    - { id: bench, label: Mind the ceiling, hint: A small benchmark app to test local models, icon: pulse, screen: bench }
     - { id: talks, label: Talks, hint: '15 minutes of fame, occasionally', icon: mic, screen: talks }
     - { id: about, label: About, hint: The human bit, icon: person, screen: about }
     - { id: linkedin, label: LinkedIn, hint: The formal one, icon: linkedin, link: linkedin }
