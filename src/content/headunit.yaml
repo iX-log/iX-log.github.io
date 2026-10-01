@@ -1,0 +1,87 @@
+# UI copy for the head unit and the static page around it. Nothing in src/headunit or src/boring hardcodes words.
+main:
+  brand: iX
+  unitLabel: Interactive head unit
+  header:
+    navLabel: Links
+    theme: Theme
+    writing: Writing
+    github: GitHub
+    linkedin: LinkedIn
+    email: Mail
+    skip: Skip to the boring version ↓
+  handshake:
+    title: Connecting iPhone…
+    detail: accessory protocol · dev.ix.portfolio
+    done: iPhone connected
+    skipHint: Press to skip. It's 1.4 s, but I respect the impatience
+  dock:
+    label: Apps
+    home: Home
+    back: Back
+  theme:
+    toDay: Switch to day mode
+    toNight: Switch to night mode
+  home:
+    title: Home
+    apps: All apps
+    # cvLead and the CV badge only appear once profile.yaml has a cvUrl. Until then the
+    # tile is just the portrait, and it opens About.
+    cvLead: Curriculum vitae
+    stageTitle: In a nutshell 🧑🏻‍💻
+    aboutCta: →
+    photoAlt: Ixhen in Lederhosen between two CarPlay test benches, holding a Maß
+    todos: []
+  widgets:
+    nowBuilding: Now building
+    latest: Latest article
+    qr:
+      lead: Take it with you.
+      text: Scan to open the companion app on your phone.
+      alt: QR code that opens ix-dev.com on your phone
+  # Every destination is an app: four screens on the unit, four links off it.
+  apps:
+    - { id: experience, label: Experience, hint: Mostly iOS apps for the automotive industry, icon: briefcase, screen: experience }
+    - { id: writing, label: Medium, hint: 'CarPlay, minus the fluff', icon: medium, link: medium }
+    - { id: github, label: GitHub, hint: 'Code, some of it public', icon: github, link: github }
+    - { id: bench, label: Mind the ceiling, hint: A small benchmark app to test local models, icon: pulse, screen: bench }
+    - { id: talks, label: Talks, hint: '15 minutes of fame, occasionally', icon: mic, screen: talks }
+    - { id: about, label: About, hint: The human bit, icon: person, screen: about }
+    - { id: linkedin, label: LinkedIn, hint: The formal one, icon: linkedin, link: linkedin }
+    - { id: email, label: Email, hint: Happy to get in touch, icon: mail, link: email }
+  screens:
+    writing: { minutes: min }
+    talks: { video: 'Video ↗', play: Play, playing: Now playing }
+    bench: { repoLink: GitHub repo ↗ }
+    about: { speaks: Speaks, thesis: Thesis, toolbox: Toolbox }
+    contact: { email: Email, linkedin: LinkedIn, github: GitHub, medium: Medium }
+  play:
+    title: Wanna play a game?
+    blurb: Two easter eggs live down here. The code turns this page into the companion app on your phone — the same CarPlay ↔ companion trick I wrote a series about. The toggle repaints the accent, for anyone who read Part Deux.
+    dressLabel: Aurora's dress
+    dressHint: Flip it. The whole page follows.
+  power:
+    on: Turn on
+    off: Turn off
+    goingOff: Turning off…
+    offDetail: good dog · standing by
+    offTitle: Logan 🐶
+    photoAlt: Logan the dog lying under a starry sky
+  companion:
+    openedFrom: Opened from the head unit.
+    pill: 'Companion app · open {host} on a laptop too'
+    sync:
+      label: Companion sync
+      tag: This device only
+      blurb: Flip Aurora's dress. Yes, that is a Part Deux reference.
+      pink: Pink
+      blue: Blue
+  boring:
+    title: The boring version
+    hint: Tap to open
+    cv: Download CV (PDF)
+    groups:
+      tldr: TL;DR
+      experience: Work History
+      education: Alma Mater
+    minutesSuffix: min read

@@ -1,0 +1,14 @@
+---
+import type { SiteData } from '../lib/types';
+import ThemeToggle from '../headunit/ThemeToggle.svelte';
+interface Props { data: SiteData }
+const { data } = Astro.props;
+const { ui } = data;
+const h = ui.header;
+---
+<header class="chrome">
+  <a class="brand" href="#top" aria-label={data.name}>i<span class="lead">X</span></a>
+
+  <!-- The page's single theme control; the phone companion carries its own. -->
+  <ThemeToggle client:load labels={ui.theme} pill text={h.theme} />
+</header>

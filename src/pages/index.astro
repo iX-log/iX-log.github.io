@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import HeadUnit from '../headunit/HeadUnit.svelte';
+// Parked: the QR + easter-egg section. Re-add <Play client:visible data={data} /> to bring it back.
+// import Play from '../headunit/Play.svelte';
+import SiteHeader from '../boring/SiteHeader.astro';
+import Hero from '../boring/Hero.astro';
+import FromHeadUnit from '../boring/FromHeadUnit.astro';
+import Boring from '../boring/Boring.astro';
+import SiteFooter from '../boring/SiteFooter.astro';
+import { loadSiteData } from '../lib/site-data';
+import { getEntry } from 'astro:content';
+
+const data = await loadSiteData(Astro.site!);
+const profile = (await getEntry('profile', 'main'))!.data;
+const title = `${data.name} · iOS Tech Lead, CarPlay & On-device AI`;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: data.name,
+  jobTitle: 'iOS Tech Lead',
+  url: Astro.site?.href,
+  email: `mailto:${data.links.email}`,
+  address: { '@type': 'PostalAddress', addressLocality: data.city, addressCountry: 'DE' },
+  knowsLanguage: data.languages,
+  knowsAbout: ['iOS', 'Swift', 'SwiftUI', 'CarPlay', 'Core ML', 'On-device AI'],
+  alumniOf: { '@type': 'CollegeOrUniversity', name: 'Technical University of Munich' },
+  sameAs: [data.links.linkedin, data.links.github, data.links.medium],
+};
+---
+<Base title={title} description={profile.description} jsonLd={jsonLd}>
+  <!-- Without JS the head unit never mounts: hide its reserved space and the skip link; the static page has everything. -->
+  <noscript slot="head"><style>.hu-mount, .skip-boring { display: none !important; }</style></noscript>
+
+  <div class="page">
+    <FromHeadUnit text={data.ui.companion.openedFrom} />
+    <SiteHeader data={data} />
+    <main id="main">
+      <Hero data={data} />
+      <div class="hu-mount">
+        <HeadUnit client:only="svelte" data={data} />
+      </div>
+      <Boring data={data} />
+    </main>
+    <SiteFooter data={data} />
+  </div>
+</Base>

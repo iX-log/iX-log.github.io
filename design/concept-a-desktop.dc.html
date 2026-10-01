@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Head Unit — desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0C0E;font-family:'Archivo',sans-serif;color:#ECEDEF}
+a{color:#ECEDEF}a:hover{color:#ffffff}
+.hu-enter{animation:huRise .38s cubic-bezier(.2,.8,.2,1) both}
+.hu-dot{animation:huPulse 1.2s ease-in-out infinite}
+.hu-dot2{animation-delay:.2s}.hu-dot3{animation-delay:.4s}
+.hu-tile{transition:background-color .15s ease,transform .15s ease}
+.hu-tile:hover{background-color:#22262C}
+.hu-tile:active{transform:scale(.97)}
+button:focus-visible,a:focus-visible{outline:2px solid #8EC5FF;outline-offset:3px}
+@keyframes huRise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes huPulse{0%,100%{opacity:.25}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.hu-enter,.hu-dot{animation:none}.hu-tile{transition:none}}
+</style>
+</helmet>
+
+<div style="width: 1440px; height: 1480px; box-sizing: border-box; padding: 40px 60px 64px; display: flex; flex-direction: column; gap: 28px; background: #0B0C0E;">
+
+  <!-- Top line: the 5-second test lives here -->
+  <header style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="font-size: 30px; font-weight: 700; font-stretch: 118%; letter-spacing: -0.01em;">Ixhen Hasani</div>
+      <div style="font-size: 16px; color: #A0A3AB;">iOS Tech Lead · CarPlay · On-device AI · Munich</div>
+    </div>
+    <nav style="display: flex; gap: 24px; align-items: center; font-size: 15px;" aria-label="Quick links">
+      <a href="https://medium.com/@ixhen.dev" style="text-decoration: none; color: #A0A3AB;">Writing</a>
+      <a href="https://github.com/iX-log" style="text-decoration: none; color: #A0A3AB;">GitHub</a>
+      <a href="https://www.linkedin.com/in/ixhen-hasani/" style="text-decoration: none; color: #A0A3AB;">LinkedIn</a>
+      <a href="#cv" style="text-decoration: none; padding: 10px 16px; border: 1px solid #3A3E46; border-radius: 999px; font-weight: 600;">Skip to the boring version ↓</a>
+    </nav>
+  </header>
+
+  <!-- The head unit -->
+  <div style="align-self: center; width: 1320px; height: 520px; box-sizing: border-box; padding: 20px; background: #000000; border: 1px solid #2A2C31; border-radius: 30px;">
+    <div style="width: 1280px; height: 480px; border-radius: 14px; overflow: hidden; background: #111317; display: flex; position: relative;">
+
+      <!-- CONNECTING -->
+      <sc-if value="{{isConnecting}}" hint-placeholder-val="{{ false }}">
+        <div class="hu-enter" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; background: #111317;">
+          <div style="display: flex; align-items: center; gap: 22px; color: #ECEDEF;">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"></rect><path d="M11 18.5h2"></path></svg>
+            <div style="display: flex; gap: 8px;">
+              <span class="hu-dot" style="width: 8px; height: 8px; border-radius: 50%; background: {{accent}};"></span>
+              <span class="hu-dot hu-dot2" style="width: 8px; height: 8px; border-radius: 50%; background: {{accent}};"></span>
+              <span class="hu-dot hu-dot3" style="width: 8px; height: 8px; border-radius: 50%; background: {{accent}};"></span>
+            </div>
+            <svg width="52" height="44" viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15.5l2.2-5.6A3 3 0 0 1 8 8h12a3 3 0 0 1 2.8 1.9l2.2 5.6"></path><rect x="2" y="15" width="24" height="4.5" rx="1.5"></rect><circle cx="7.5" cy="19.5" r="1.6"></circle><circle cx="20.5" cy="19.5" r="1.6"></circle></svg>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <div style="font-size: 26px; font-weight: 600; font-stretch: 112%;">Connecting iPhone…</div>
+            <div style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A0A3AB;">accessory protocol · dev.ix.portfolio</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- DOCK (every screen except connecting) -->
+      <sc-if value="{{isConnected}}" hint-placeholder-val="{{ true }}">
+        <div style="width: 96px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 22px 0; box-sizing: border-box; background: #0C0D10; border-right: 1px solid #22252B;">
+          <div style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A0A3AB; letter-spacing: 0.08em;">iX</div>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <button onClick="{{goExperience}}" aria-label="Experience" style="width: 56px; height: 56px; border: none; border-radius: 14px; background: #1A1D22; color: #ECEDEF; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path></svg>
+            </button>
+            <button onClick="{{goBench}}" aria-label="Bench" style="width: 56px; height: 56px; border: none; border-radius: 14px; background: #1A1D22; color: #ECEDEF; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17h5l2-9 3 12 2-6h6"></path></svg>
+            </button>
+            <button onClick="{{goContact}}" aria-label="Contact" style="width: 56px; height: 56px; border: none; border-radius: 14px; background: #1A1D22; color: #ECEDEF; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
+            </button>
+          </div>
+          <button onClick="{{goHome}}" aria-label="Home" style="width: 56px; height: 56px; border: 1px solid #2E3238; border-radius: 50%; background: transparent; color: #ECEDEF; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"></rect><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"></rect><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"></rect><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"></rect></svg>
+          </button>
+        </div>
+      </sc-if>
+
+      <!-- HOME -->
+      <sc-if value="{{isHome}}" hint-placeholder-val="{{ true }}">
+        <div class="hu-enter" style="flex-grow: 1; box-sizing: border-box; padding: 36px 40px; display: flex; gap: 32px;">
+          <!-- widgets -->
+          <div style="width: 400px; flex-shrink: 0; display: flex; flex-direction: column; gap: 20px;">
+            <div style="flex-grow: 1; border-radius: 20px; background: #1A1D22; padding: 24px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <div style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: {{accent}};">NOW BUILDING</div>
+                <div style="font-size: 24px; font-weight: 700; font-stretch: 110%; line-height: 1.15;">Mind the ceiling</div>
+                <div style="font-size: 15px; color: #A0A3AB; line-height: 1.4;">What actually runs on a phone. Whisper's encoder, 74,000 inferences across three iPhones, with the raw runs in the repo.</div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="height: 4px; border-radius: 2px; background: #2A2E35; overflow: hidden;"><div style="width: 62%; height: 4px; background: {{accent}};"></div></div>
+                <div style="display: flex; justify-content: space-between; font-family: 'Geist Mono', monospace; font-size: 12px; color: #A0A3AB;"><span>fp16 · int8 · int4</span><span>[STATUS]</span></div>
+              </div>
+            </div>
+            <div style="border-radius: 20px; background: #1A1D22; padding: 20px 24px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <div style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #A0A3AB;">COMPANION SYNC</div>
+                <div style="font-size: 15px;">Aurora's dress: <strong style="color: {{dressColor}};">{{dressLabel}}</strong></div>
+              </div>
+              <div style="display: flex; padding: 4px; border-radius: 999px; background: #0F1114; gap: 4px;" role="group" aria-label="Dress color">
+                <button onClick="{{pickPink}}" aria-pressed="{{pinkPressed}}" style="border: none; border-radius: 999px; padding: 10px 16px; min-height: 44px; font-family: Archivo, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; background: {{pinkBg}}; color: {{pinkFg}};">Pink</button>
+                <button onClick="{{pickBlue}}" aria-pressed="{{bluePressed}}" style="border: none; border-radius: 999px; padding: 10px 16px; min-height: 44px; font-family: Archivo, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; background: {{blueBg}}; color: {{blueFg}};">Blue</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- app grid -->
+          <div style="flex-grow: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+            <button class="hu-tile" onClick="{{goExperience}}" style="border: none; border-radius: 20px; background: #1A1D22; color: #ECEDEF; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; padding: 22px; cursor: pointer; font-family: 'Archivo', sans-serif; text-align: left;">
+              <span style="width: 48px; height: 48px; border-radius: 14px; background: #262A31; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path></svg></span>
+              <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 19px; font-weight: 600;">Experience</span><span style="font-size: 13px; color: #A0A3AB;">6 years in cars</span></span>
+            </button>
+            <button class="hu-tile" onClick="{{goWriting}}" style="border: none; border-radius: 20px; background: #1A1D22; color: #ECEDEF; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; padding: 22px; cursor: pointer; font-family: 'Archivo', sans-serif; text-align: left;">
+              <span style="width: 48px; height: 48px; border-radius: 14px; background: #262A31; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4z"></path><path d="M13.5 6.5l4 4"></path></svg></span>
+              <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 19px; font-weight: 600;">Writing</span><span style="font-size: 13px; color: #A0A3AB;">Barebones CarPlay</span></span>
+            </button>
+            <button class="hu-tile" onClick="{{goTalks}}" style="border: none; border-radius: 20px; background: #1A1D22; color: #ECEDEF; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; padding: 22px; cursor: pointer; font-family: 'Archivo', sans-serif; text-align: left;">
+              <span style="width: 48px; height: 48px; border-radius: 14px; background: #262A31; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path></svg></span>
+              <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 19px; font-weight: 600;">Talks</span><span style="font-size: 13px; color: #A0A3AB;">On stage</span></span>
+            </button>
+            <button class="hu-tile" onClick="{{goBench}}" style="border: none; border-radius: 20px; background: #1A1D22; color: #ECEDEF; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; padding: 22px; cursor: pointer; font-family: 'Archivo', sans-serif; text-align: left;">
+              <span style="width: 48px; height: 48px; border-radius: 14px; background: #262A31; display: flex; align-items: center; justify-content: center; color: {{accent}};"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17h5l2-9 3 12 2-6h6"></path></svg></span>
+              <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 19px; font-weight: 600;">Bench</span><span style="font-size: 13px; color: #A0A3AB;">On-device AI</span></span>
+            </button>
+            <button class="hu-tile" onClick="{{goAbout}}" style="border: none; border-radius: 20px; background: #1A1D22; color: #ECEDEF; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; padding: 22px; cursor: pointer; font-family: 'Archivo', sans-serif; text-align: left;">
+              <span style="width: 48px; height: 48px; border-radius: 14px; background: #262A31; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></span>
+              <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 19px; font-weight: 600;">About</span><span style="font-size: 13px; color: #A0A3AB;">The human bit</span></span>
+            </button>
+            <button class="hu-tile" onClick="{{goContact}}" style="border: none; border-radius: 20px; background: #1A1D22; color: #ECEDEF; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; padding: 22px; cursor: pointer; font-family: 'Archivo', sans-serif; text-align: left;">
+              <span style="width: 48px; height: 48px; border-radius: 14px; background: #262A31; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span>
+              <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 19px; font-weight: 600;">Contact</span><span style="font-size: 13px; color: #A0A3AB;">Say hi</span></span>
+            </button>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- EXPERIENCE -->
+      <sc-if value="{{isExperience}}" hint-placeholder-val="{{ false }}">
+        <div class="hu-enter" style="flex-grow: 1; box-sizing: border-box; padding: 28px 40px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <button onClick="{{goHome}}" aria-label="Back" style="width: 44px; height: 44px; border: none; border-radius: 50%; background: #1A1D22; color: #ECEDEF; display: flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+            <div style="font-size: 26px; font-weight: 700; font-stretch: 112%;">Experience</div>
+          </div>
+          <div style="display: flex; flex-direction: column; border-top: 1px solid #262A30;">
+            <div style="display: grid; grid-template-columns: 170px 300px minmax(0, 1fr); gap: 24px; padding: 16px 0; border-bottom: 1px solid #262A30; align-items: baseline;">
+              <div style="font-family: 'Geist Mono', monospace; font-size: 13px; color: {{accent}};">2024 – now</div>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 17px; font-weight: 600;">Lamborghini Unica CarPlay</span><span style="font-size: 14px; color: #A0A3AB;">iOS Tech Lead</span></div>
+              <div style="font-size: 15px; color: #C9CBD1; line-height: 1.45;">Architected the CarPlay layer in pure SwiftUI, no templates. In production on the Urus since Oct 2025.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 170px 300px minmax(0, 1fr); gap: 24px; padding: 16px 0; border-bottom: 1px solid #262A30; align-items: baseline;">
+              <div style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A0A3AB;">2022 – 2024</div>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 17px; font-weight: 600;">myAudi</span><span style="font-size: 14px; color: #A0A3AB;">iOS Engineer · App Architecture</span></div>
+              <div style="font-size: 15px; color: #C9CBD1; line-height: 1.45;">Prototypes that shipped: Widgets and CarPlay. 1.5M users, rating kept above 4★.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 170px 300px minmax(0, 1fr); gap: 24px; padding: 16px 0; border-bottom: 1px solid #262A30; align-items: baseline;">
+              <div style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A0A3AB;">2021 – 2022</div>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 17px; font-weight: 600;">VW Remote Park Assist</span><span style="font-size: 14px; color: #A0A3AB;">iOS Engineer</span></div>
+              <div style="font-size: 15px; color: #C9CBD1; line-height: 1.45;">Park your car from your phone. Demo apps for IAA Mobility, and Pong played on LED headlights.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 170px 300px minmax(0, 1fr); gap: 24px; padding: 16px 0; border-bottom: 1px solid #262A30; align-items: baseline;">
+              <div style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A0A3AB;">2020 – 2021</div>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 17px; font-weight: 600;">Porsche Connect</span><span style="font-size: 14px; color: #A0A3AB;">iOS Engineer</span></div>
+              <div style="font-size: 15px; color: #C9CBD1; line-height: 1.45;">Moved fleet management and service partner maps to SwiftUI.</div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- WRITING -->
+      <sc-if value="{{isWriting}}" hint-placeholder-val="{{ false }}">
+        <div class="hu-enter" style="flex-grow: 1; box-sizing: border-box; padding: 28px 40px; display: flex; flex-direction: column; gap: 22px;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <button onClick="{{goHome}}" aria-label="Back" style="width: 44px; height: 44px; border: none; border-radius: 50%; background: #1A1D22; color: #ECEDEF; display: flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+            <div style="display: flex; flex-direction: column;"><span style="font-size: 26px; font-weight: 700; font-stretch: 112%;">Barebones CarPlay App</span><span style="font-size: 14px; color: #A0A3AB;">A fluff-free guide to a real CarPlay app in SwiftUI, without CPTemplate.</span></div>
+          </div>
+          <div style="flex-grow: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;">
+            <a href="https://medium.com/@ixhen.dev/barebones-carplay-app-part-xero-shortest-path-8213f10dceff" style="text-decoration: none; border-radius: 18px; background: #1A1D22; padding: 22px; display: flex; flex-direction: column; justify-content: space-between;">
+              <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: {{accent}};">PART XERO</span>
+              <span style="font-size: 20px; font-weight: 600; line-height: 1.2;">Shortest Path</span>
+              <span style="font-size: 13px; color: #A0A3AB;">Six files, six Infinity Stones.<br>Dec 9, 2025 · 6 min</span>
+            </a>
+            <a href="https://medium.com/@ixhen.dev/barebones-carplay-app-part-un-a-path-to-remember-da9d640e5314" style="text-decoration: none; border-radius: 18px; background: #1A1D22; padding: 22px; display: flex; flex-direction: column; justify-content: space-between;">
+              <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: {{accent}};">PART UN</span>
+              <span style="font-size: 20px; font-weight: 600; line-height: 1.2;">A Path to Remember</span>
+              <span style="font-size: 13px; color: #A0A3AB;">Simulator × device, all four ways.<br>Dec 10, 2025 · 9 min</span>
+            </a>
+            <a href="https://medium.com/@ixhen.dev/barebones-carplay-app-part-deux-a-path-upon-a-dream-467db81a0be3" style="text-decoration: none; border-radius: 18px; background: #1A1D22; padding: 22px; display: flex; flex-direction: column; justify-content: space-between;">
+              <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: {{accent}};">PART DEUX</span>
+              <span style="font-size: 20px; font-weight: 600; line-height: 1.2;">A Path Upon a Dream</span>
+              <span style="font-size: 13px; color: #A0A3AB;">Architecture, as told by three fairies.<br>Dec 14, 2025 · 6 min</span>
+            </a>
+            <a href="https://medium.com/@ixhen.dev/barebones-carplay-app-part-deux-happily-ever-carplay-29987132d9fd" style="text-decoration: none; border-radius: 18px; background: #1A1D22; padding: 22px; display: flex; flex-direction: column; justify-content: space-between;">
+              <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: {{accent}};">PART DEUX, PART DEUX</span>
+              <span style="font-size: 20px; font-weight: 600; line-height: 1.2;">Happily Ever CarPlay</span>
+              <span style="font-size: 13px; color: #A0A3AB;">Actors, streams, one source of truth.<br>Dec 16, 2025 · 8 min</span>
+            </a>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- TALKS -->
+      <sc-if value="{{isTalks}}" hint-placeholder-val="{{ false }}">
+        <div class="hu-enter" style="flex-grow: 1; box-sizing: border-box; padding: 28px 40px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <button onClick="{{goHome}}" aria-label="Back" style="width: 44px; height: 44px; border: none; border-radius: 50%; background: #1A1D22; color: #ECEDEF; display: flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+            <div style="font-size: 26px; font-weight: 700; font-stretch: 112%;">Talks</div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; border-radius: 18px; background: #1A1D22; padding: 20px 24px;">
+              <div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: {{accent}};">UPCOMING</span><span style="font-size: 19px; font-weight: 600;">What Actually Runs on a Phone</span><span style="font-size: 14px; color: #A0A3AB;">[CONFERENCE] · [CITY] · [DATE]</span></div>
+              <span style="font-size: 14px; color: #A0A3AB;">Abstract ↗</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; border-radius: 18px; background: #1A1D22; padding: 20px 24px;">
+              <div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A0A3AB;">[YEAR]</span><span style="font-size: 19px; font-weight: 600;">[CARPLAY TALK TITLE]</span><span style="font-size: 14px; color: #A0A3AB;">[EVENT] · [CITY]</span></div>
+              <span style="font-size: 14px; color: #A0A3AB;">Video ↗</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; border-radius: 18px; background: #1A1D22; padding: 20px 24px;">
+              <div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A0A3AB;">WS 24/25</span><span style="font-size: 19px; font-weight: 600;">SpaceGem project pitch</span><span style="font-size: 14px; color: #A0A3AB;">iPraktikum · TU Munich</span></div>
+              <a href="https://aet.cit.tum.de/projects/courses/ipraktikum/24w/quartett-mobile/?video=kickoff" style="font-size: 14px; color: #A0A3AB;">Video ↗</a>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- BENCH -->
+      <sc-if value="{{isBench}}" hint-placeholder-val="{{ false }}">
+        <div class="hu-enter" style="flex-grow: 1; box-sizing: border-box; padding: 28px 40px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <button onClick="{{goHome}}" aria-label="Back" style="width: 44px; height: 44px; border: none; border-radius: 50%; background: #1A1D22; color: #ECEDEF; display: flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+              <div style="display: flex; flex-direction: column;"><span style="font-size: 26px; font-weight: 700; font-stretch: 112%;">Mind the ceiling</span><span style="font-size: 14px; color: #A0A3AB;">whisper-base encoder · four iPhones · A16 to A19 Pro</span></div>
+            </div>
+            <a href="[REPO URL]" style="font-size: 14px; padding: 10px 16px; border: 1px solid #3A3E46; border-radius: 999px; text-decoration: none;">Raw data ↗</a>
+          </div>
+          <div style="flex-grow: 1; display: flex; gap: 20px;">
+            <div style="width: 420px; flex-shrink: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px;">
+              <div style="border-radius: 16px; background: #1A1D22; padding: 18px; display: flex; flex-direction: column; justify-content: space-between;"><span style="font-family: 'Geist Mono', monospace; font-size: 32px; font-weight: 500;">42<span style="font-size: 16px; color: #A0A3AB;"> ms</span></span><span style="font-size: 13px; color: #A0A3AB;">warm inference. Not the 2 s everyone quotes.</span></div>
+              <div style="border-radius: 16px; background: #1A1D22; padding: 18px; display: flex; flex-direction: column; justify-content: space-between;"><span style="font-family: 'Geist Mono', monospace; font-size: 32px; font-weight: 500;">6–9<span style="font-size: 16px; color: #A0A3AB;"> MB</span></span><span style="font-size: 13px; color: #A0A3AB;">of RAM for a 39.4 MB model.</span></div>
+              <div style="border-radius: 16px; background: #1A1D22; padding: 18px; display: flex; flex-direction: column; justify-content: space-between;"><span style="font-family: 'Geist Mono', monospace; font-size: 32px; font-weight: 500; color: {{accent}};">100<span style="font-size: 16px; color: #A0A3AB;"> s</span></span><span style="font-size: 13px; color: #A0A3AB;">at full speed. Then a different machine.</span></div>
+              <div style="border-radius: 16px; background: #1A1D22; padding: 18px; display: flex; flex-direction: column; justify-content: space-between;"><span style="font-family: 'Geist Mono', monospace; font-size: 32px; font-weight: 500;">2.6<span style="font-size: 16px; color: #A0A3AB;">×</span></span><span style="font-size: 13px; color: #A0A3AB;">the word errors at int4, for 3% speed.</span></div>
+            </div>
+            <div style="flex-grow: 1; border-radius: 16px; background: #1A1D22; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; justify-content: space-between; font-family: 'Geist Mono', monospace; font-size: 12px; color: #A0A3AB;"><span>LATENCY · 12,848 SAMPLES · 10 MIN</span><span>ms</span></div>
+              <svg viewBox="0 0 600 240" width="100%" height="220" role="img" aria-label="Latency holds at about 42 ms for 102 seconds, then steps up to about 49 ms and stays there.">
+                <line x1="0" y1="190" x2="600" y2="190" stroke="#2A2E35" stroke-width="1"></line>
+                <line x1="0" y1="120" x2="600" y2="120" stroke="#2A2E35" stroke-width="1"></line>
+                <line x1="0" y1="50" x2="600" y2="50" stroke="#2A2E35" stroke-width="1"></line>
+                <line x1="102" y1="10" x2="102" y2="230" stroke="#4A4F58" stroke-width="1" stroke-dasharray="4 4"></line>
+                <polyline fill="none" stroke="{{accent}}" stroke-width="2.5" stroke-linejoin="round" points="0,181 12,179 24,182 36,180 48,181 60,178 72,181 84,180 96,179 102,181 106,125 110,78 122,74 140,77 160,71 180,75 200,72 230,74 260,70 290,73 320,71 350,75 380,70 410,72 440,69 470,73 500,71 530,68 560,72 600,70"></polyline>
+                <text x="110" y="28" fill="#A0A3AB" font-family="Geist Mono, monospace" font-size="12">102 s</text>
+                <text x="6" y="206" fill="#A0A3AB" font-family="Geist Mono, monospace" font-size="11">41.7</text>
+                <text x="560" y="94" fill="#A0A3AB" font-family="Geist Mono, monospace" font-size="11">49.4</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ABOUT -->
+      <sc-if value="{{isAbout}}" hint-placeholder-val="{{ false }}">
+        <div class="hu-enter" style="flex-grow: 1; box-sizing: border-box; padding: 28px 40px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <button onClick="{{goHome}}" aria-label="Back" style="width: 44px; height: 44px; border: none; border-radius: 50%; background: #1A1D22; color: #ECEDEF; display: flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+            <div style="font-size: 26px; font-weight: 700; font-stretch: 112%;">About</div>
+          </div>
+          <div style="display: flex; gap: 40px;">
+            <div style="max-width: 640px; display: flex; flex-direction: column; gap: 14px; font-size: 17px; line-height: 1.55; color: #C9CBD1;">
+              <p style="margin: 0;">Hey, I'm Ixhen. Yes, the name sounds like a new iPhone model. I've been writing Swift every day since 2020, so I've stopped fighting it.</p>
+              <p style="margin: 0;">Almost everything I've shipped runs in a car: Porsche, VW, Audi, Lamborghini. Now I'm working out which AI models can actually run next to it.</p>
+              <p style="margin: 0;">My favorite part: the problem starts messy, and you cut the noise until the answer looks obvious.</p>
+            </div>
+            <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #A0A3AB;">
+              <div style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em;">TU MUNICH</div>
+              <div>B.Sc. + M.Sc. Computer Science</div>
+              <div style="color: #ECEDEF;">Thesis: recognizing stress from heart rate on iPhone + Apple Watch</div>
+              <div style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; margin-top: 10px;">SPEAKS</div>
+              <div>English · German · Italian · Spanish</div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- CONTACT -->
+      <sc-if value="{{isContact}}" hint-placeholder-val="{{ false }}">
+        <div class="hu-enter" style="flex-grow: 1; box-sizing: border-box; padding: 28px 40px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <button onClick="{{goHome}}" aria-label="Back" style="width: 44px; height: 44px; border: none; border-radius: 50%; background: #1A1D22; color: #ECEDEF; display: flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+            <div style="font-size: 26px; font-weight: 700; font-stretch: 112%;">Contact</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px;">
+            <a href="mailto:ixhen.dev@gmail.com" style="text-decoration: none; border-radius: 18px; background: #1A1D22; padding: 24px; display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: {{accent}};">EMAIL</span><span style="font-size: 20px; font-weight: 600;">ixhen.dev@gmail.com</span></a>
+            <a href="https://www.linkedin.com/in/ixhen-hasani/" style="text-decoration: none; border-radius: 18px; background: #1A1D22; padding: 24px; display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A0A3AB;">LINKEDIN</span><span style="font-size: 20px; font-weight: 600;">in/ixhen-hasani</span></a>
+            <a href="https://github.com/iX-log" style="text-decoration: none; border-radius: 18px; background: #1A1D22; padding: 24px; display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A0A3AB;">GITHUB</span><span style="font-size: 20px; font-weight: 600;">iX-log</span></a>
+            <a href="https://medium.com/@ixhen.dev" style="text-decoration: none; border-radius: 18px; background: #1A1D22; padding: 24px; display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A0A3AB;">MEDIUM</span><span style="font-size: 20px; font-weight: 600;">@ixhen.dev</span></a>
+          </div>
+        </div>
+      </sc-if>
+
+    </div>
+  </div>
+
+  <!-- Caption under the unit -->
+  <div style="align-self: center; width: 1320px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #A0A3AB;">
+    <span>Tap an app. Open this page on your phone and you get the companion app, synced to this screen.</span>
+    <button onClick="{{replay}}" style="border: none; background: transparent; color: #A0A3AB; font-family: 'Geist Mono', monospace; font-size: 13px; cursor: pointer; padding: 12px 0; text-decoration: underline;">Replay handshake</button>
+  </div>
+
+  <!-- The boring version -->
+  <section id="cv" style="align-self: center; width: 1320px; margin-top: 36px; padding-top: 40px; border-top: 1px solid #22252B; display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: 48px;">
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-size: 28px; font-weight: 700; font-stretch: 112%;">The boring version</div>
+      <div style="font-size: 15px; color: #A0A3AB; line-height: 1.5;">Same facts, no dashboard. For anyone with thirty seconds and a stack of CVs.</div>
+      <a href="[CV PDF URL]" style="margin-top: 8px; align-self: flex-start; font-size: 15px; font-weight: 600; padding: 12px 18px; border-radius: 999px; background: #ECEDEF; color: #0B0C0E; text-decoration: none;">Download CV (PDF)</a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 22px; font-size: 16px; line-height: 1.5;">
+      <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A0A3AB;">2024 – now</span><span><strong>iOS Tech Lead, Lamborghini Unica CarPlay.</strong> <span style="color: #C9CBD1;">Architected and built the CarPlay layer in pure SwiftUI. In production on the Urus since Oct 2025.</span></span></div>
+      <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A0A3AB;">2022 – 2024</span><span><strong>iOS Engineer, myAudi (App Architecture).</strong> <span style="color: #C9CBD1;">Widgets and CarPlay from prototype to production. 1.5M users.</span></span></div>
+      <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A0A3AB;">2021 – 2022</span><span><strong>iOS Engineer, VW Remote Park Assist.</strong> <span style="color: #C9CBD1;">Tester and demo apps, including IAA Mobility.</span></span></div>
+      <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A0A3AB;">2020 – 2021</span><span><strong>iOS Engineer, Porsche Connect.</strong> <span style="color: #C9CBD1;">SwiftUI migration of fleet and service features.</span></span></div>
+      <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A0A3AB;">2015 – 2021</span><span><strong>B.Sc. + M.Sc. Computer Science, TU Munich.</strong> <span style="color: #C9CBD1;">Thesis: stress recognition from heart rate on iOS + watchOS.</span></span></div>
+    </div>
+  </section>
+
+  <footer style="align-self: center; width: 1320px; margin-top: auto; display: flex; justify-content: space-between; font-family: 'Geist Mono', monospace; font-size: 12px; color: #A0A3AB;">
+    <span>© 2026 Ixhen Hasani · Not affiliated with any automaker. The head unit is my own design.</span>
+    <span>ix-dev.com</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#8EC5FF","options":["#8EC5FF","#F2A7C6","#9BE3B5","#F5C877"]},"startOnHome":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":1480}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { screen: (props.startOnHome ?? false) ? 'home' : 'connecting', dress: 'pink' };
+  }
+  componentDidMount() { this.boot(); }
+  componentWillUnmount() { clearTimeout(this.t); }
+  boot() {
+    clearTimeout(this.t);
+    if (this.state.screen === 'connecting') {
+      this.t = setTimeout(() => this.setState({ screen: 'home' }), 1900);
+    }
+  }
+  go(screen) { this.setState({ screen: screen }); }
+  renderVals() {
+    const s = this.state.screen;
+    const pink = this.state.dress === 'pink';
+    return {
+      accent: this.props.accent ?? '#8EC5FF',
+      isConnecting: s === 'connecting',
+      isConnected: s !== 'connecting',
+      isHome: s === 'home',
+      isExperience: s === 'experience',
+      isWriting: s === 'writing',
+      isTalks: s === 'talks',
+      isBench: s === 'bench',
+      isAbout: s === 'about',
+      isContact: s === 'contact',
+      goHome: () => this.go('home'),
+      goExperience: () => this.go('experience'),
+      goWriting: () => this.go('writing'),
+      goTalks: () => this.go('talks'),
+      goBench: () => this.go('bench'),
+      goAbout: () => this.go('about'),
+      goContact: () => this.go('contact'),
+      replay: () => this.setState({ screen: 'connecting' }, () => this.boot()),
+      dressLabel: pink ? 'Pink' : 'Blue',
+      dressColor: pink ? '#F2A7C6' : '#8EC5FF',
+      pinkPressed: pink ? 'true' : 'false',
+      bluePressed: pink ? 'false' : 'true',
+      pinkBg: pink ? '#F2A7C6' : 'transparent',
+      pinkFg: pink ? '#0B0C0E' : '#A0A3AB',
+      blueBg: pink ? 'transparent' : '#8EC5FF',
+      blueFg: pink ? '#A0A3AB' : '#0B0C0E',
+      pickPink: () => this.setState({ dress: 'pink' }),
+      pickBlue: () => this.setState({ dress: 'blue' })
+    };
+  }
+}
+</script>
+</body>
+</html>

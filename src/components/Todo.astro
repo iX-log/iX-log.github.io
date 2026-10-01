@@ -1,0 +1,7 @@
+---
+// Visible placeholder for a missing fact. No scoped styles on purpose: scripts/todos.mjs
+// Dev-only: production builds never render them. `npm run todos` reads src/content instead.
+interface Props { items?: string[] }
+const { items = [] } = Astro.props;
+---
+{import.meta.env.DEV && items.map((text) => <div><span class="todo" data-todo>TODO: {text}</span></div>)}

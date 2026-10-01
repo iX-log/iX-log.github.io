@@ -1,0 +1,80 @@
+---
+import '../styles/global.css';
+import { getEntry } from 'astro:content';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  jsonLd?: Record<string, unknown>;
+}
+const { title, description, image = '/og-image.png', jsonLd } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const imageUrl = new URL(image, Astro.site);
+// Cookie-free analytics (Umami Cloud). data-domains keeps localhost and previews out of the numbers.
+const umamiId = (await getEntry('profile', 'main'))?.data.umamiId;
+const analyticsHost = Astro.site?.hostname;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0b0c0e" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <slot name="head" />
+    {umamiId && <script is:inline defer src="https://cloud.umami.is/script.js" data-website-id={umamiId} data-domains={analyticsHost}></script>}
+    {umamiId && (
+      <script is:inline>
+        // One listener for every link that leaves the site: LinkedIn, GitHub, Medium, Mail, talk videos.
+        document.addEventListener('click', (e) => {
+          const a = e.target instanceof Element ? e.target.closest('a[href]') : null;
+          if (!a || !window.umami) return;
+          const href = a.getAttribute('href') || '';
+          if (href.startsWith('mailto:')) { window.umami.track('outbound', { to: 'mail' }); return; }
+          try {
+            const url = new URL(href, location.href);
+            if (url.origin !== location.origin) window.umami.track('outbound', { to: url.hostname + url.pathname });
+          } catch (_) { /* not a URL */ }
+        }, { capture: true });
+      </script>
+    )}
+
+    <script is:inline>
+      // Runs before paint: the head unit's day/night toggle stores its choice here.
+      try {
+        if (localStorage.getItem('ix-theme') === 'day') {
+          document.documentElement.dataset.theme = 'day';
+          document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#e9ebef');
+        }
+      } catch (e) { /* private mode: night stays */ }
+    </script>
+
+    <link rel="preload" href="/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ixhen Hasani" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ixhen Hasani · iOS Tech Lead · CarPlay · On-device AI" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,83 @@
+main:
+  name: Mind the ceiling
+  summary: >-
+    An open harness that measures Core ML latency, memory, thermals and quantization on iPhone.
+  pitch: What actually runs on a phone. Whisper's encoder, 74,000 inferences across three iPhones.
+  pitchWithRepo: What actually runs on a phone. Whisper's encoder, 74,000 inferences across three iPhones, with the raw runs in the repo.
+  status: In progress
+  variants: fp16 · int8 · int4
+  context: whisper-base encoder · four iPhones · A16 to A19 Pro
+  repo: https://github.com/iX-log/mind-the-ceiling
+  readouts:
+    - label: Speed
+      question: how fast does it actually run?
+      value: '43'
+      unit: ' ms'
+      display:
+        - warm inference on the A16, 26 ms on the A19 Pro.
+    - label: Memory
+      question: how much RAM does it really use?
+      value: '3376'
+      unit: ' MiB'
+      display:
+        - the ceiling on an 8 GB iPhone and on a 12 GB one.
+        - The same threshold, to the byte.
+    - label: Endurance
+      question: does it get slower the longer you run it?
+      value: '18'
+      unit: ' %'
+      display:
+        - slower after ten minutes on the A16.
+        - Across four phones, +7% to +28%, and the worst was not the oldest.
+    - label: Accuracy
+      question: what do you lose by shrinking the model?
+      value: '2.6'
+      unit: ×
+      display:
+        - the word errors at int4, for 3% speed.
+  chart:
+    label: Latency · iPhone 14 Pro Max · 12,848 samples · 10 min
+    unit: ms
+    stepAt: 102
+    stepLabel: 102 s
+    duration: 600
+    low: 41.7
+    high: 49.5
+    alt: One ten-minute run on an iPhone 14 Pro Max. Latency holds near 41.7 ms for about 100 seconds, steps to roughly 46 ms, then climbs again to about 49.5 ms and stays there. Newer phones in the same test do not step at all.
+    # Median latency per bucket, downsampled from the committed run
+    # results/device-pull/sustained-1788785293.json (12,848 samples, session 3).
+    # Buckets are 20 s, narrowed to 10 s between 80 s and 130 s to show the step.
+    points:
+      - [0, 42.5]
+      - [20, 41.7]
+      - [40, 41.7]
+      - [60, 41.7]
+      - [80, 41.8]
+      - [90, 41.7]
+      - [100, 45.7]
+      - [110, 46.2]
+      - [120, 46.2]
+      - [140, 46.1]
+      - [160, 46.1]
+      - [180, 46.2]
+      - [200, 46.1]
+      - [220, 46.2]
+      - [240, 46.1]
+      - [260, 49.3]
+      - [280, 46.2]
+      - [300, 46.1]
+      - [320, 46.2]
+      - [340, 46.2]
+      - [360, 46.2]
+      - [380, 48.7]
+      - [400, 49.5]
+      - [420, 49.4]
+      - [440, 49.4]
+      - [460, 49.4]
+      - [480, 49.5]
+      - [500, 49.5]
+      - [520, 49.5]
+      - [540, 49.4]
+      - [560, 49.4]
+      - [580, 49.4]
+  todos: []

@@ -1,0 +1,45 @@
+# Newest first. `end: now` renders as "now". `blurb` is the one-line version used on the head unit.
+- id: lamborghini-unica-carplay
+  order: 1
+  project: Lamborghini Unica CarPlay
+  title: iOS Tech Lead
+  start: Sep 2024
+  end: Present
+  blurb: Architected the CarPlay layer in pure SwiftUI, no templates. In production on the Urus since Oct 2025.
+  points:
+    - Architected and built the CarPlay layer in pure SwiftUI, no templates.
+    - In production on the Urus since Oct 2025.
+
+- id: myaudi
+  order: 2
+  project: myAudi
+  title: iOS Developer
+  start: Aug 2022
+  end: Sep 2024
+  blurb: "Prototypes that shipped: Widgets and CarPlay. 1.5M users, rating kept above 4★."
+  points:
+    - Took Widgets and CarPlay from prototype to production.
+    - Handled iOS/Swift upgrades and build plugins.
+    - Built Car2Phone features.
+    - An app with 1.5M users; rating kept above 4★.
+
+- id: vw-remote-park-assist
+  order: 3
+  project: VW Remote Park Assist
+  title: iOS Developer
+  start: Jul 2021
+  end: Aug 2022
+  blurb: Park your car from your phone. Demo apps for IAA Mobility, and Pong played on LED headlights.
+  points:
+    - Built tester and demo apps, including the Automated Valet Parking demo at IAA Mobility.
+    - Got Pong running on LED headlights (Audi Light Department).
+
+- id: porsche-connect
+  order: 4
+  project: Porsche Connect / myPorsche
+  title: iOS Developer
+  start: Nov 2020
+  end: Jul 2021
+  blurb: Moved fleet management and service partner maps to SwiftUI.
+  points:
+    - Moved fleet management and service partner maps to SwiftUI.
