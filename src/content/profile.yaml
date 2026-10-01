@@ -47,6 +47,6 @@ main:
     github: https://github.com/iX-log
     medium: https://medium.com/@ixhen.dev
   # Umami Cloud website ID (Settings → Websites). Leave unset and no analytics script loads.
-  # umamiId: 00000000-0000-0000-0000-000000000000
+  umamiId: 0b2d761a-4b72-4c99-b192-e047e8d8469f
   # cvUrl: https://...   <- add the CV PDF URL here and the tile becomes a real download
   todos: []
