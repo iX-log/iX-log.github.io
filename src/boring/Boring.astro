@@ -25,7 +25,7 @@ const [titleHead, titleRest] = twoTone(b.title);
   </summary>
 
   <div class="boring-body">
-    {data.cvUrl ? <a class="cv-button" href={data.cvUrl}>{b.cv}</a> : <Todo items={data.profileTodos} />}
+    {data.cvUrl ? <a class="cv-button" href={data.cvUrl} target="_blank" rel="noopener noreferrer">{b.cv}</a> : <Todo items={data.profileTodos} />}
 
     <!-- The old site as it stands, word for word: TL;DR, Work History, Alma Mater. -->
     <div class="groups">

@@ -41,7 +41,7 @@
   {/snippet}
 
   {#if data.cvUrl}
-    <a class="stage hu-tile" href={data.cvUrl}>{@render stageInner()}</a>
+    <a class="stage hu-tile" href={data.cvUrl} target="_blank" rel="noopener noreferrer">{@render stageInner()}</a>
   {:else}
     <button class="stage hu-tile" type="button" onclick={() => go('about')}>{@render stageInner()}</button>
   {/if}

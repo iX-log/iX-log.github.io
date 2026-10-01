@@ -49,10 +49,10 @@
   </nav>
 
   <div class="bottom">
-    {#if data.cvUrl}<a class="cv" href={data.cvUrl}>{data.ui.boring.cv}</a>{/if}
+    {#if data.cvUrl}<a class="cv" href={data.cvUrl} target="_blank" rel="noopener noreferrer">{data.ui.boring.cv}</a>{/if}
     <div class="social">
-      <a class="round" href={data.links.github} rel="me" aria-label={data.ui.header.github}><Icon name="github" width={20} height={20} /></a>
-      <a class="round" href={data.links.linkedin} rel="me" aria-label={data.ui.header.linkedin}><Icon name="linkedin" width={20} height={20} /></a>
+      <a class="round" href={data.links.github} target="_blank" rel="me noopener noreferrer" aria-label={data.ui.header.github}><Icon name="github" width={20} height={20} /></a>
+      <a class="round" href={data.links.linkedin} target="_blank" rel="me noopener noreferrer" aria-label={data.ui.header.linkedin}><Icon name="linkedin" width={20} height={20} /></a>
     </div>
   </div>
 </div>

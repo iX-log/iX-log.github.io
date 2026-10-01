@@ -17,7 +17,7 @@
   <ScreenHeader title={bench.name} subtitle={bench.context} backLabel={data.ui.dock.back} {onback}>
     {#snippet right()}
       {#if bench.repo}
-        <a class="pill" href={bench.repo}>{data.ui.screens.bench.repoLink}</a>
+        <a class="pill" href={bench.repo} target="_blank" rel="noopener noreferrer">{data.ui.screens.bench.repoLink}</a>
       {:else}
         <Todo items={bench.todos} />
       {/if}
@@ -61,13 +61,18 @@
     font-size: 14px; padding: 10px 16px; border: 1px solid var(--pill-border); border-radius: 999px; text-decoration: none; color: var(--text);
   }
   .body { flex-grow: 1; display: flex; gap: 20px; min-height: 0; }
-  .readouts { width: 420px; flex-shrink: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-  .readout { border-radius: 16px; background: var(--tile); padding: 16px; display: flex; flex-direction: column; gap: 6px; }
-  .label { font-size: 12px; font-weight: 600; color: var(--text); }
-  .question { font-size: 12px; color: var(--muted); line-height: 1.3; padding-bottom: 8px; border-bottom: 1px solid var(--divider); }
-  .value { font-family: var(--font-mono); font-size: 28px; font-weight: 500; color: var(--accent); margin-top: 2px; }
+  /* The display is a fixed 1280x480 and does not scroll, so the two tile rows have
+     350px between them. Measured at this width the tiles come to 333px, which leaves
+     about 17px of slack. 520px is also the width at which every question fits on one
+     line; narrower and they wrap to two and the bottom row is cut off. If a readout
+     gains a line of note text, check it still fits before shipping. */
+  .readouts { width: 520px; flex-shrink: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; align-content: start; }
+  .readout { border-radius: 16px; background: var(--tile); padding: 14px; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+  .label { font-size: 12px; line-height: 1.2; font-weight: 600; color: var(--text); }
+  .question { font-size: 12px; color: var(--muted); line-height: 1.3; padding-bottom: 6px; border-bottom: 1px solid var(--divider); }
+  .value { font-family: var(--font-mono); font-size: 28px; line-height: 1.1; font-weight: 500; color: var(--accent); }
   .unit { font-size: 16px; color: var(--muted); }
-  .note { font-size: 12px; color: var(--muted); line-height: 1.35; display: flex; flex-direction: column; gap: 3px; }
+  .note { font-size: 12px; color: var(--muted); line-height: 1.35; display: flex; flex-direction: column; gap: 2px; }
   .chart { flex-grow: 1; min-width: 0; border-radius: 16px; background: var(--tile); padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; }
   .chart-head { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; }
 </style>
