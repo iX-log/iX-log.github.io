@@ -31,6 +31,7 @@ const profile = defineCollection({
       medium: z.url(),
     }),
     cvUrl: z.url().optional(),
+    umamiId: z.uuid().optional(),
     todos,
   }),
 });

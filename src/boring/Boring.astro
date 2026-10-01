@@ -64,6 +64,8 @@ const [titleHead, titleRest] = twoTone(b.title);
 </details>
 
 <script>
+  import { track } from '../lib/track';
+
   // Opening it from the skip link, and from a #cv link someone pasted to a colleague.
   const panel = document.getElementById('cv') as HTMLDetailsElement | null;
   if (panel) {
@@ -78,5 +80,6 @@ const [titleHead, titleRest] = twoTone(b.title);
         open();
       }),
     );
+    panel.addEventListener('toggle', () => { if (panel.open) track('boring-version'); });
   }
 </script>

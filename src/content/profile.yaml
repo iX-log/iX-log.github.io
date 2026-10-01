@@ -46,5 +46,7 @@ main:
     linkedin: https://www.linkedin.com/in/ixhen-hasani/
     github: https://github.com/iX-log
     medium: https://medium.com/@ixhen.dev
+  # Umami Cloud website ID (Settings → Websites). Leave unset and no analytics script loads.
+  # umamiId: 00000000-0000-0000-0000-000000000000
   # cvUrl: https://...   <- add the CV PDF URL here and the tile becomes a real download
   todos: []

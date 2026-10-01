@@ -2,6 +2,7 @@
   import { onMount, tick } from 'svelte';
   import type { Screen, SiteData } from '../lib/types';
   import { screenFromHash, urlFor } from './router';
+  import { track } from '../lib/track';
   import Dock from './Dock.svelte';
   import Handshake from './Handshake.svelte';
   import Home from './Home.svelte';
@@ -102,12 +103,15 @@
     nudge = false;
     markNudged();
     if (phase === 'connecting') { void finishHandshake(); return; }
+    track('power', { to: phase === 'off' ? 'on' : 'off' });
     startHandshake(phase === 'off' ? 'ready' : 'off');
   }
 
   async function show(next: Screen) {
     if (next === screen || phase === 'off') return;
     screen = next;
+    // Screens only change the #hash, which Umami doesn't count as a page view.
+    track('screen', { screen: next });
     await tick();
     focusTarget(); // opening an app moves focus to its heading
   }
